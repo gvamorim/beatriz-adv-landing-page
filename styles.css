@@ -108,10 +108,12 @@ strong {
     padding: var(--spacing-md) 0 var(--spacing-xl);
     background-color: var(--color-brown-dark);
     background-image: url('etc/images/128.jpg');
-    background-size: auto 120%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .hero::before {
@@ -119,7 +121,7 @@ strong {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(33, 24, 16, 0.2) 0%, rgba(33, 24, 16, 0.4) 40%, rgba(33, 24, 16, 0.85) 100%);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(0.5px);
     z-index: 0;
 }
 
@@ -235,7 +237,7 @@ strong {
 
 @media (max-width: 1200px) {
     .hero {
-        background-size: auto 115%;
+        background-size: cover;
         background-position: center center;
     }
 }
@@ -244,7 +246,7 @@ strong {
     .hero {
         min-height: 100dvh;
         padding: var(--spacing-lg) 0 var(--spacing-xl);
-        background-size: auto 110%;
+        background-size: cover;
         background-position: center center;
     }
 
@@ -256,7 +258,7 @@ strong {
 @media (max-width: 768px) {
     .hero {
         min-height: 100dvh;
-        background-size: auto 105%;
+        background-size: cover;
         background-position: center center;
     }
 
@@ -502,7 +504,7 @@ section.visible .about-content > * {
 
 .features-list li {
     margin-bottom: var(--spacing-sm);
-    padding-left: var(--spacing-md);
+    padding-left: 0;
     position: relative;
     font-size: clamp(1rem, 2vw, 1.125rem);
 }
@@ -514,7 +516,7 @@ section.visible .about-content > * {
 
 .alert-list li {
     margin-bottom: var(--spacing-sm);
-    padding-left: var(--spacing-sm);
+    padding-left: 0;
     position: relative;
     font-size: clamp(1rem, 2vw, 1.125rem);
 }
