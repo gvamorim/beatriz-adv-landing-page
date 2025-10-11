@@ -108,9 +108,9 @@ strong {
     padding: var(--spacing-md) 0 var(--spacing-xl);
     background-color: var(--color-brown-dark);
     background-image: url('etc/images/128.jpg');
-    background-size: cover;
+    background-size: auto 120%;
     background-repeat: no-repeat;
-    background-position: center 20%;
+    background-position: center center;
     background-attachment: scroll;
 }
 
@@ -193,8 +193,8 @@ strong {
 
 @media (max-width: 1200px) {
     .hero {
-        background-size: cover;
-        background-position: center 25%;
+        background-size: auto 115%;
+        background-position: center center;
     }
 }
 
@@ -202,8 +202,8 @@ strong {
     .hero {
         min-height: 100dvh;
         padding: var(--spacing-lg) 0 var(--spacing-xl);
-        background-size: cover;
-        background-position: center 30%;
+        background-size: auto 110%;
+        background-position: center center;
     }
 
     .hero-bridge {
@@ -214,8 +214,8 @@ strong {
 @media (max-width: 768px) {
     .hero {
         min-height: 100dvh;
-        background-size: cover;
-        background-position: center 35%;
+        background-size: auto 105%;
+        background-position: center center;
     }
 
     .hero-content {
@@ -231,14 +231,14 @@ strong {
     .hero {
         min-height: 100dvh;
         background-size: cover;
-        background-position: center 40%;
+        background-position: center center;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
         background-size: cover;
-        background-position: center 45%;
+        background-position: center center;
     }
     
     .hero-subtitle {
@@ -465,7 +465,7 @@ section.visible .about-content > * {
 
 .alert-list li {
     margin-bottom: var(--spacing-sm);
-    padding-left: var(--spacing-lg);
+    padding-left: var(--spacing-md);
     position: relative;
     font-size: clamp(1rem, 2vw, 1.125rem);
 }
