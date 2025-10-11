@@ -502,7 +502,7 @@ section.visible .about-content > * {
 
 .features-list li {
     margin-bottom: var(--spacing-sm);
-    padding-left: var(--spacing-lg);
+    padding-left: var(--spacing-md);
     position: relative;
     font-size: clamp(1rem, 2vw, 1.125rem);
 }
@@ -514,7 +514,7 @@ section.visible .about-content > * {
 
 .alert-list li {
     margin-bottom: var(--spacing-sm);
-    padding-left: var(--spacing-md);
+    padding-left: var(--spacing-sm);
     position: relative;
     font-size: clamp(1rem, 2vw, 1.125rem);
 }
@@ -565,7 +565,7 @@ section.visible .about-content > * {
     text-decoration: none;
     font-family: var(--font-sans);
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 8px;
     transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -574,14 +574,15 @@ section.visible .about-content > * {
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(61, 46, 31, 0.3);
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     will-change: transform;
 }
 
 .cta-button:hover {
     background-color: var(--color-brown-dark);
-    transform: translate3d(0, -3px, 0) scale(1.02);
-    box-shadow: 0 6px 25px rgba(61, 46, 31, 0.4);
+    transform: translate3d(0, -3px, 0) scale(1.03);
+    box-shadow: 0 8px 30px rgba(61, 46, 31, 0.5);
 }
 
 .alt-section .cta-button {
