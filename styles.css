@@ -98,49 +98,55 @@ strong {
    ========================================== */
 
 .hero {
-    min-height: 100vh;
+    --hero-offset: clamp(18rem, 58vh, 28rem);
+    min-height: 100dvh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: var(--spacing-xl) 0;
-    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-beige-medium) 100%);
+    padding: var(--spacing-md) 0 var(--spacing-xl);
+    background-color: var(--color-brown-dark);
+    background-image: url('etc/images/128.jpg');
+    background-image: -webkit-image-set(
+        url('etc/images/128.jpg') 1x,
+        url('etc/images/128.jpg') 2x
+    );
+    background-image: image-set(
+        url('etc/images/128.jpg') 1x,
+        url('etc/images/128.jpg') 2x
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 8%;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(33, 24, 16, 0.85) 0%, rgba(88, 66, 45, 0.62) 42%, rgba(197, 165, 114, 0.28) 100%);
+    backdrop-filter: blur(1px);
+    z-index: 0;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 45% 55%;
-    gap: var(--spacing-xl);
-    align-items: center;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    max-width: 720px;
     margin: 0 auto;
     width: 100%;
+    color: var(--color-text-light);
+    padding-top: var(--hero-offset);
+    padding-bottom: var(--spacing-xl);
 }
 
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 0 var(--spacing-md);
-}
-
-.hero-photo {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(61, 46, 31, 0.25);
-}
-
-.hero-text {
-    text-align: left;
-    padding: 0 var(--spacing-xl) 0 0;
+.hero-content > * {
+    text-shadow: 0 18px 32px rgba(8, 6, 4, 0.55);
 }
 
 @keyframes fadeInScale {
@@ -155,7 +161,7 @@ strong {
 }
 
 .hero-name {
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
     letter-spacing: 1px;
     animation: fadeInUp 1s ease-out;
@@ -166,18 +172,75 @@ strong {
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     font-weight: 400;
     font-style: italic;
-    color: var(--color-brown-medium);
+    color: rgba(245, 241, 237, 0.85);
     margin-bottom: var(--spacing-lg);
     animation: fadeInUp 1.2s ease-out;
 }
 
-.hero-description {
-    max-width: 700px;
-    font-size: clamp(1.125rem, 2.2vw, 1.25rem);
-    font-weight: 400;
-    line-height: 1.8;
+.hero-bridge {
+    background: linear-gradient(180deg, rgba(213, 196, 176, 0.45) 0%, var(--color-beige-light) 65%);
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+}
+
+.hero-bridge .container {
+    max-width: 760px;
+}
+
+.hero-lead {
+    font-size: clamp(1.125rem, 2.6vw, 1.375rem);
+    line-height: 1.9;
     color: var(--color-brown-dark);
+    text-align: left;
     animation: fadeInUp 1.4s ease-out;
+}
+
+.hero-lead strong {
+    color: var(--color-text-dark);
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        --hero-offset: clamp(20rem, 64vh, 30rem);
+        background-position: 52% 6%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        align-items: flex-start;
+        padding: var(--spacing-lg) 0 var(--spacing-xl);
+        --hero-offset: clamp(21rem, 70vh, 32rem);
+        background-position: 52% 2%;
+    }
+
+    .hero-content {
+        gap: var(--spacing-sm);
+    }
+
+    .hero-subtitle {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero-bridge {
+        padding: var(--spacing-md) 0 var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        --hero-offset: clamp(22rem, 74vh, 34rem);
+        background-position: 52% 0%;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.15rem, 4.8vw, 1.5rem);
+        line-height: 1.6;
+    }
+
+    .hero-lead {
+        font-size: clamp(1.05rem, 4.6vw, 1.25rem);
+        line-height: 1.75;
+    }
 }
 
 /* ==========================================
