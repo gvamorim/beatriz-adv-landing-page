@@ -35,36 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================
     
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-visible');
+                entry.target.classList.add('visible');
             }
         });
     }, observerOptions);
     
-    // Observe sections for fade-in animation
-    const sections = document.querySelectorAll('.content-section, .choice-section, .about-section');
+    // Observe all sections for fade-in animation
+    const sections = document.querySelectorAll('section:not(.hero):not(.hero-bridge)');
     sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
         observer.observe(section);
     });
-    
-    // Add visible class for animation
-    const style = document.createElement('style');
-    style.textContent = `
-        .fade-in-visible {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
     
     // ==========================================
     // BUTTON INTERACTIONS

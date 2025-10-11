@@ -119,6 +119,7 @@ strong {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 6%;
+    background-attachment: fixed;
 }
 
 .hero::before {
@@ -255,6 +256,42 @@ strong {
 }
 
 /* ==========================================
+   SECTION TRANSITIONS & ANIMATIONS
+   ========================================== */
+
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero always visible */
+.hero,
+.hero-bridge {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for section children */
+section.visible .section-title {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+section.visible .content-wrapper > *,
+section.visible .choice-buttons > * {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+section.visible .about-content > * {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+/* ==========================================
    CHOICE SECTION
    ========================================== */
 
@@ -289,7 +326,7 @@ strong {
     border-radius: 12px;
     text-decoration: none;
     color: var(--color-text-dark);
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     min-height: 200px;
     text-align: center;
 }
@@ -298,7 +335,7 @@ strong {
     background-color: var(--color-brown-dark);
     color: var(--color-cream);
     border-color: var(--color-brown-dark);
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 30px rgba(61, 46, 31, 0.3);
 }
 
@@ -481,7 +518,7 @@ strong {
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
     font-weight: 600;
     border-radius: 8px;
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-align: center;
     border: none;
     cursor: pointer;
@@ -491,7 +528,7 @@ strong {
 
 .cta-button:hover {
     background-color: var(--color-brown-dark);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 6px 25px rgba(61, 46, 31, 0.4);
 }
 
@@ -606,13 +643,14 @@ strong {
     border-radius: 8px;
     font-family: var(--font-sans);
     font-weight: 400;
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-btn:hover {
     background-color: var(--color-beige-light);
     color: var(--color-brown-dark);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(245, 241, 237, 0.3);
 }
 
 .social-btn svg {
