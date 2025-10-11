@@ -9,18 +9,21 @@
 }
 
 :root {
-    /* Paleta terrosa */
-    --color-brown-dark: #6B5744;
-    --color-brown-medium: #8B7355;
-    --color-brown-light: #A89080;
+    /* Paleta terrosa com melhor contraste */
+    --color-brown-dark: #3D2E1F;
+    --color-brown-medium: #6B5744;
+    --color-brown-light: #8B7355;
     --color-beige-light: #F5F1ED;
-    --color-beige-medium: #E8E0D5;
+    --color-beige-medium: #E8DDD0;
+    --color-beige-dark: #D4C4B0;
     --color-white: #FFFFFF;
-    --color-accent: #9B7E5A;
+    --color-accent: #8B6F47;
+    --color-text-dark: #2C2416;
+    --color-text-light: #F8F5F2;
     
-    /* Tipografia */
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Lato', sans-serif;
+    /* Tipografia - Mais formal e elegante */
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Raleway', sans-serif;
     
     /* Espaçamentos */
     --spacing-xs: 0.5rem;
@@ -41,9 +44,9 @@ html {
 
 body {
     font-family: var(--font-sans);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     background-color: var(--color-beige-light);
     overflow-x: hidden;
 }
@@ -60,9 +63,10 @@ body {
 
 h1, h2, h3 {
     font-family: var(--font-serif);
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 600;
+    line-height: 1.3;
     margin-bottom: var(--spacing-md);
+    color: var(--color-text-dark);
 }
 
 h1 {
@@ -83,8 +87,8 @@ p {
 }
 
 strong {
-    font-weight: 700;
-    color: var(--color-brown-dark);
+    font-weight: 600;
+    color: var(--color-text-dark);
 }
 
 /* ==========================================
@@ -143,16 +147,16 @@ strong {
 }
 
 .hero-name {
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-sm);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     animation: fadeInUp 1s ease-out;
 }
 
 .hero-subtitle {
     font-family: var(--font-serif);
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: 400;
+    font-weight: 500;
     font-style: italic;
     color: var(--color-brown-medium);
     margin-bottom: var(--spacing-lg);
@@ -165,7 +169,7 @@ strong {
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
     font-weight: 400;
     line-height: 1.8;
-    color: var(--color-brown-light);
+    color: var(--color-brown-dark);
     animation: fadeInUp 1.4s ease-out;
 }
 
@@ -180,7 +184,7 @@ strong {
 
 .choice-section .section-title {
     text-align: center;
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-xl);
 }
 
@@ -199,22 +203,22 @@ strong {
     justify-content: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-lg);
-    background-color: var(--color-beige-light);
-    border: 2px solid var(--color-brown-light);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-brown-medium);
     border-radius: 12px;
     text-decoration: none;
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     transition: var(--transition);
     min-height: 200px;
     text-align: center;
 }
 
 .choice-btn:hover {
-    background-color: var(--color-brown-medium);
-    color: var(--color-beige-light);
+    background-color: var(--color-brown-dark);
+    color: var(--color-white);
     border-color: var(--color-brown-dark);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(107, 87, 68, 0.3);
+    box-shadow: 0 10px 30px rgba(61, 46, 31, 0.3);
 }
 
 .choice-btn .icon {
@@ -225,7 +229,7 @@ strong {
 .choice-btn .btn-text {
     font-family: var(--font-serif);
     font-size: clamp(1.125rem, 2.2vw, 1.375rem);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.4;
 }
 
@@ -239,11 +243,11 @@ strong {
 }
 
 .content-section.alt-section {
-    background-color: var(--color-brown-light);
+    background-color: var(--color-brown-dark);
 }
 
 .alt-section .section-title {
-    color: var(--color-white);
+    color: var(--color-text-light);
 }
 
 .alt-section p,
@@ -252,16 +256,16 @@ strong {
 }
 
 .alt-section .intro-text {
-    color: var(--color-beige-medium);
+    color: var(--color-beige-dark);
 }
 
 .alt-section .subsection-title {
-    color: var(--color-white);
+    color: var(--color-text-light);
 }
 
 .section-title {
     font-family: var(--font-serif);
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     text-align: center;
     margin-bottom: var(--spacing-lg);
 }
@@ -274,15 +278,15 @@ strong {
 /* Text Styles */
 .question {
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
-    font-weight: 700;
-    color: var(--color-brown-dark);
+    font-weight: 600;
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-sm);
 }
 
 .emphasis {
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
-    font-weight: 700;
-    color: var(--color-brown-dark);
+    font-weight: 600;
+    color: var(--color-text-dark);
     margin: var(--spacing-md) 0;
 }
 
@@ -294,19 +298,19 @@ strong {
 }
 
 .highlight-title {
-    font-weight: 700;
+    font-weight: 600;
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
 }
 
 .result {
     font-style: italic;
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     margin: var(--spacing-md) 0;
     padding: var(--spacing-md);
-    background-color: var(--color-beige-medium);
+    background-color: var(--color-beige-dark);
     border-left: 4px solid var(--color-accent);
     border-radius: 4px;
 }
@@ -354,30 +358,30 @@ strong {
 .subsection-title {
     font-family: var(--font-serif);
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    color: var(--color-brown-dark);
+    color: var(--color-text-dark);
     margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
 }
 
 .process-box {
-    background-color: var(--color-beige-light);
+    background-color: var(--color-beige-dark);
     padding: var(--spacing-md);
     border-radius: 8px;
     margin: var(--spacing-md) 0;
-    border: 1px solid var(--color-brown-light);
+    border: 1px solid var(--color-brown-medium);
 }
 
 .alt-section .process-box {
     background-color: var(--color-brown-medium);
-    border: 2px solid var(--color-brown-dark);
+    border: 2px solid var(--color-accent);
 }
 
 .alt-section .process-box p {
-    color: var(--color-beige-light);
+    color: var(--color-text-light);
 }
 
 .alt-section .process-box .subsection-title {
-    color: var(--color-white);
+    color: var(--color-text-light);
 }
 
 /* ==========================================
@@ -391,7 +395,7 @@ strong {
     background-color: var(--color-brown-dark);
     color: var(--color-white);
     text-decoration: none;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: clamp(1.125rem, 2.2vw, 1.25rem);
     font-weight: 600;
     border-radius: 8px;
@@ -399,13 +403,14 @@ strong {
     text-align: center;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(107, 87, 68, 0.3);
+    box-shadow: 0 4px 15px rgba(61, 46, 31, 0.3);
+    letter-spacing: 0.5px;
 }
 
 .cta-button:hover {
     background-color: var(--color-accent);
     transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(107, 87, 68, 0.4);
+    box-shadow: 0 6px 25px rgba(61, 46, 31, 0.4);
 }
 
 .alt-section .cta-button {
@@ -424,12 +429,12 @@ strong {
 
 .about-section {
     padding: var(--spacing-xxl) var(--spacing-md);
-    background-color: var(--color-brown-medium);
+    background-color: var(--color-beige-light);
 }
 
 .about-section .section-title {
     margin-bottom: var(--spacing-xl);
-    color: var(--color-beige-light);
+    color: var(--color-brown-dark);
 }
 
 .about-content {
@@ -472,7 +477,7 @@ strong {
 .about-text {
     font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.8;
-    color: var(--color-beige-light);
+    color: var(--color-brown-dark);
     text-align: justify;
 }
 
@@ -481,7 +486,8 @@ strong {
 }
 
 .about-text strong {
-    color: var(--color-white);
+    color: var(--color-text-dark);
+    font-weight: 600;
 }
 
 /* ==========================================
