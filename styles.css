@@ -693,32 +693,6 @@ section.visible .about-content > * {
         padding: 0 1.25rem;
     }
     
-    .hero {
-        min-height: auto;
-        padding: var(--spacing-lg) var(--spacing-sm);
-    }
-    
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-        text-align: center;
-    }
-    
-    .hero-image {
-        order: 1;
-        padding: 0;
-    }
-    
-    .hero-photo {
-        max-width: 350px;
-    }
-    
-    .hero-text {
-        order: 2;
-        text-align: center;
-        padding: 0 var(--spacing-md);
-    }
-    
     .choice-buttons {
         grid-template-columns: 1fr;
     }
@@ -764,22 +738,6 @@ section.visible .about-content > * {
 @media (max-width: 480px) {
     .container {
         padding: 0 1rem;
-    }
-    
-    .hero {
-        padding: var(--spacing-md) var(--spacing-sm);
-    }
-    
-    .hero-photo {
-        max-width: 280px;
-    }
-    
-    .hero-text {
-        padding: 0 var(--spacing-sm);
-    }
-    
-    .hero-name {
-        letter-spacing: 0.5px;
     }
     
     .choice-btn {
