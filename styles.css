@@ -108,7 +108,7 @@ strong {
     padding: var(--spacing-md) 0 var(--spacing-xl);
     background-color: var(--color-brown-dark);
     background-image: url('etc/images/128.jpg');
-    background-size: cover;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
@@ -237,7 +237,7 @@ strong {
 
 @media (max-width: 1200px) {
     .hero {
-        background-size: cover;
+        background-size: auto 100%;
         background-position: center center;
     }
 }
@@ -246,7 +246,7 @@ strong {
     .hero {
         min-height: 100dvh;
         padding: var(--spacing-lg) 0 var(--spacing-xl);
-        background-size: cover;
+        background-size: auto 100%;
         background-position: center center;
     }
 
@@ -258,7 +258,7 @@ strong {
 @media (max-width: 768px) {
     .hero {
         min-height: 100dvh;
-        background-size: cover;
+        background-size: auto 100%;
         background-position: center center;
     }
 
