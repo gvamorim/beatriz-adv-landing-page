@@ -22,11 +22,11 @@
     --color-accent: #8B6F47;
     --color-text-dark: #2C2416;
     --color-text-light: #F8F5F2;
-    
+
     /* Tipografia - Mais formal e elegante */
     --font-serif: 'Merriweather', serif;
     --font-sans: 'Open Sans', sans-serif;
-    
+
     /* Espaçamentos */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -34,7 +34,7 @@
     --spacing-lg: 3rem;
     --spacing-xl: 4rem;
     --spacing-xxl: 6rem;
-    
+
     /* Transições */
     --transition: all 0.3s ease;
 }
@@ -284,7 +284,7 @@ strong {
         background-size: cover;
         background-position: center center;
     }
-    
+
     .hero-subtitle {
         font-size: clamp(1.15rem, 4.8vw, 1.5rem);
         line-height: 1.6;
@@ -747,48 +747,48 @@ section.visible .about-content > * {
         --spacing-xl: 3rem;
         --spacing-xxl: 4rem;
     }
-    
+
     .container {
         padding: 0 1.25rem;
     }
-    
+
     .choice-buttons {
         grid-template-columns: 1fr;
     }
-    
+
     .content-wrapper {
         text-align: left;
     }
-    
+
     .section-title {
         text-align: center;
     }
-    
+
     .about-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .about-text {
         text-align: center;
     }
-    
+
     .placeholder-image {
         width: 200px;
         height: 200px;
         font-size: 4rem;
     }
-    
+
     .profile-photo {
         width: 220px;
         height: 220px;
     }
-    
+
     .contact-buttons {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .social-btn {
         justify-content: center;
     }
@@ -798,28 +798,28 @@ section.visible .about-content > * {
     .container {
         padding: 0 1rem;
     }
-    
+
     .choice-btn {
         min-height: 160px;
         padding: var(--spacing-md);
     }
-    
+
     .choice-btn .icon {
         font-size: 2.5rem;
     }
-    
+
     .cta-button {
         width: 100%;
         padding: var(--spacing-md);
     }
-    
+
     .benefits-list,
     .features-list,
     .alert-list,
     .delivery-list {
         padding-left: var(--spacing-md);
     }
-    
+
     .profile-photo {
         width: 200px;
         height: 200px;
@@ -834,7 +834,7 @@ section.visible .about-content > * {
     html {
         scroll-behavior: auto;
     }
-    
+
     * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
