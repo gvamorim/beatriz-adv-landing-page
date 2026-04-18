@@ -3,8 +3,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://guiguitz.github.io",
-  base: "/beatrizadv/",
+  // Must match GitHub Pages project URL: https://<user>.github.io/<repo>/
+  site: "https://gvamorim.github.io",
+  base: "/beatriz-adv-landing-page/",
   trailingSlash: "ignore",
   vite: {
     plugins: [tailwindcss()],

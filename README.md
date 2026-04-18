@@ -46,7 +46,7 @@ npm install
 npm run dev
 ```
 
-O site abre em **[http://localhost:4321/beatrizadv/](http://localhost:4321/beatrizadv/)**
+O site abre em **[http://localhost:4321/beatriz-adv-landing-page/](http://localhost:4321/beatriz-adv-landing-page/)**
 (ou na porta que o Astro indicar no terminal). Alterações em arquivos são
 recarregadas automaticamente.
 
@@ -68,8 +68,9 @@ Para habilitar:
 
 1. No repositório, acesse **Settings → Pages**.
 2. Em **Build and deployment**, selecione **Source: GitHub Actions**.
-3. Confira `astro.config.mjs` — os campos `site` e `base` devem apontar para o
-   usuário/repositório corretos.
+3. Em `astro.config.mjs`, `site` deve ser `https://<seu-usuario>.github.io` e
+   `base` deve ser `/<nome-exato-do-repositório>/` (com barras). Se o nome do
+   repo mudar, atualize `base`; caso contrário, CSS e imagens quebram no Pages.
 
 ## Seções
 
