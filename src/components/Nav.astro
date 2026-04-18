@@ -43,6 +43,8 @@ const waHref = wa(WA_MESSAGES.general);
       <button
         type="button"
         data-menu-toggle
+        aria-controls="primary-mobile-menu"
+        aria-expanded="false"
         aria-label="Abrir menu"
         class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(181,133,74,0.35)] text-[var(--color-marrom)] transition-colors hover:border-[var(--color-caramelo)] hover:text-[var(--color-caramelo)] lg:hidden"
       >
@@ -54,7 +56,11 @@ const waHref = wa(WA_MESSAGES.general);
 
 <!-- Mobile overlay -->
 <div
+  id="primary-mobile-menu"
   data-menu-overlay
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu principal"
   aria-hidden="true"
   class="mobile-menu fixed inset-0 z-[60] flex flex-col bg-[var(--color-marrom)] text-[var(--color-bege)]"
 >

@@ -36,8 +36,8 @@ function initActiveSectionTracker(): void {
     "inicio",
     "fundadora",
     "servicos",
-    "palestras",
     "nr1",
+    "palestras",
     "contato",
   ];
   const sections = sectionIds
@@ -67,6 +67,9 @@ function initActiveSectionTracker(): void {
   sections.forEach((s) => observer.observe(s));
 }
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
 function initMobileMenu(): void {
   const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
   const overlay = document.querySelector<HTMLElement>("[data-menu-overlay]");
@@ -75,26 +78,63 @@ function initMobileMenu(): void {
 
   if (!toggle || !overlay) return;
 
+  const menu = overlay;
+  let lastFocus: HTMLElement | null = null;
+
+  function getOverlayFocusables(): HTMLElement[] {
+    return Array.from(
+      menu.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+    ).filter((el) => !el.hasAttribute("disabled"));
+  }
+
+  function onOverlayKeydown(e: KeyboardEvent): void {
+    if (!menu.classList.contains("is-open") || e.key !== "Tab") return;
+    const focusables = getOverlayFocusables();
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else if (document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   const open = () => {
-    overlay.classList.add("is-open");
-    overlay.setAttribute("aria-hidden", "false");
+    lastFocus =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    menu.classList.add("is-open");
+    menu.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    closeBtn?.focus();
+    document.addEventListener("keydown", onOverlayKeydown);
   };
+
   const close = () => {
-    overlay.classList.remove("is-open");
-    overlay.setAttribute("aria-hidden", "true");
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
+    document.removeEventListener("keydown", onOverlayKeydown);
+    lastFocus?.focus();
+    lastFocus = null;
   };
 
   toggle.addEventListener("click", open);
+
   closeBtn?.addEventListener("click", close);
 
-  overlay.querySelectorAll<HTMLAnchorElement>("a").forEach((a) => {
+  menu.querySelectorAll<HTMLAnchorElement>("a").forEach((a) => {
     a.addEventListener("click", close);
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("is-open")) {
+    if (e.key === "Escape" && menu.classList.contains("is-open")) {
       close();
     }
   });

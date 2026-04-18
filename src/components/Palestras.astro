@@ -66,7 +66,7 @@ const temas = [
     <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
       {
         gallery.map((item, i) => (
-          <Reveal delay={(i * 100) as 0 | 100}>
+          <Reveal delay={i * 100}>
             <figure class="group relative overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-30px_rgba(61,43,31,0.35)] ring-1 ring-[rgba(181,133,74,0.3)]">
               <img
                 src={item.src}

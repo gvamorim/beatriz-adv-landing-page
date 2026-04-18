@@ -33,7 +33,7 @@ export const NAV_LINKS = [
   { id: "inicio", label: "Início" },
   { id: "fundadora", label: "Fundadora" },
   { id: "servicos", label: "Serviços" },
-  { id: "palestras", label: "Palestras" },
   { id: "nr1", label: "NR-1" },
+  { id: "palestras", label: "Palestras" },
   { id: "contato", label: "Contato" },
 ];

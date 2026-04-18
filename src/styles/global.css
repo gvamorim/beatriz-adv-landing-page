@@ -310,3 +310,15 @@
   opacity: 0;
   animation: fadeUp 0.9s 0.95s forwards ease;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up-1,
+  .fade-up-2,
+  .fade-up-3,
+  .fade-up-4,
+  .fade-up-5 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

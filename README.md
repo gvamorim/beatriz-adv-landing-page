@@ -1,115 +1,114 @@
 # BVC Advocacia Consultiva — Landing Page
 
-Site institucional de Beatriz Vieira Costa (OAB/MG 241.090), fundadora da BVC
-Advocacia Consultiva, com foco em assessoria preventiva para RH, NR-1,
-compliance trabalhista, treinamentos e palestras corporativas.
+Institutional landing page for Beatriz Vieira Costa (OAB/MG 241.090), founder
+of BVC Advocacia Consultiva, focused on preventive HR legal counsel, NR-1,
+employment compliance, training, and corporate talks.
 
-Landing page estática, totalmente em **PT-BR**, construída com Astro + Tailwind
-e publicada automaticamente no GitHub Pages a cada push na branch `main`.
+**All user-facing site copy is in Brazilian Portuguese (pt-BR).** This README
+is in English for developers and contributors.
 
-## Tecnologias
+Static site built with **Astro** and **Tailwind CSS**, deployed automatically
+to GitHub Pages on every push to `main`.
 
-- **[Astro](https://astro.build)** — gerador de sites estáticos (latest)
-- **[Tailwind CSS](https://tailwindcss.com)** — estilização utility-first (latest)
-- **CSS + Intersection Observer** — animações de scroll sem bibliotecas extras
+## Tech stack
 
-## Estrutura
+- **[Astro](https://astro.build)** — static site generator (latest)
+- **[Tailwind CSS](https://tailwindcss.com)** — utility-first styling (latest)
+- **CSS + Intersection Observer** — scroll animations without extra libraries
+
+## Project structure
 
 ```text
 src/
-  components/          Nav, Hero, Founder, Intro, Services, Approach,
-                       Banner, NR1, Palestras, ServicesDetail, MainCTA,
-                       Footer, Icon, Reveal
+  components/          Nav, Hero, Founder, Services, Approach, Banner, NR1,
+                       Palestras, ServicesDetail, MainCTA, Footer, Icon, Reveal
   layouts/             BaseLayout.astro
-  pages/               index.astro (single page com âncoras)
-  scripts/             reveal.ts (IntersectionObserver + menu mobile)
-  styles/              global.css (tokens, botões, cards, animações)
-  lib/                 links.ts (WhatsApp, LinkedIn, Instagram, navegação)
+  pages/               index.astro (single page with anchor sections)
+  scripts/             reveal.ts (IntersectionObserver + mobile menu)
+  styles/              global.css (design tokens, buttons, cards, animations)
+  lib/                 links.ts (WhatsApp, LinkedIn, Instagram, nav anchors)
 public/                highlight.png, lecture.png, course.png, favicon.svg
-.github/workflows/     deploy.yml (publicação automática no GitHub Pages)
+.github/workflows/   deploy.yml (GitHub Pages deployment)
 ```
 
-Âncoras do menu rápido: `#inicio`, `#fundadora`, `#servicos`, `#palestras`,
-`#nr1`, `#contato`.
+Quick-jump anchors (same order as scroll): `#inicio`, `#fundadora`, `#servicos`,
+`#nr1`, `#palestras`, `#contato`.
 
-## Pré-requisitos
+## Prerequisites
 
-- Node.js (versão mais recente recomendada — testado em Node 20)
-- npm (ou yarn/pnpm)
+- Node.js (latest LTS recommended — tested on Node 20)
+- npm (or yarn/pnpm)
 
-## Rodando localmente
+## Local development
 
-Instale as dependências e inicie o servidor de desenvolvimento:
+Install dependencies and start the dev server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-O site abre em **[http://localhost:4321/beatriz-adv-landing-page/](http://localhost:4321/beatriz-adv-landing-page/)**
-(ou na porta que o Astro indicar no terminal). Alterações em arquivos são
-recarregadas automaticamente.
+Open **[http://localhost:4321/beatriz-adv-landing-page/](http://localhost:4321/beatriz-adv-landing-page/)**
+(or the URL/port Astro prints in the terminal). File changes hot-reload.
 
-## Build de produção
+## Production build
 
 ```bash
-npm run build     # gera dist/
-npm run preview   # serve dist/ localmente para validação
+npm run build     # outputs to dist/
+npm run preview   # serves dist/ locally for a production-like check
 ```
 
 ## Deploy (GitHub Pages)
 
-O deploy é automatizado: a cada push na branch `main`, o workflow
-**Deploy to GitHub Pages** (`.github/workflows/deploy.yml`) executa nos
-servidores do GitHub — instala dependências, roda `npm run build` e publica o
-conteúdo de `dist/` no GitHub Pages.
+Deployment is automated: on every push to `main`, the **Deploy to GitHub Pages**
+workflow (`.github/workflows/deploy.yml`) runs on GitHub’s runners — installs
+dependencies, runs `npm run build`, and publishes `dist/` to GitHub Pages.
 
-Para habilitar:
+To enable it:
 
-1. No repositório, acesse **Settings → Pages**.
-2. Em **Build and deployment**, selecione **Source: GitHub Actions**.
-3. Em `astro.config.mjs`, `site` deve ser `https://<seu-usuario>.github.io` e
-   `base` deve ser `/<nome-exato-do-repositório>/` (com barras). Se o nome do
-   repo mudar, atualize `base`; caso contrário, CSS e imagens quebram no Pages.
+1. In the repository, go to **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. In `astro.config.mjs`, set `site` to `https://<your-username>.github.io` and
+   `base` to `/<exact-repo-name>/` (with slashes). If you rename the repository,
+   update `base`; otherwise CSS and images will 404 on Pages.
 
-## Seções
+## Page sections (Portuguese UI)
 
-### Início (`#inicio`)
-Hero com proposta de valor, citação assinada por Beatriz e indicadores
-(Prev., 100%, PME, RH+).
+### Home (`#inicio`)
 
-### Sobre a Fundadora (`#fundadora`)
-Foto institucional (`public/highlight.png`), OAB MG 241.090, biografia e áreas
-de expertise: Direito Trabalhista Preventivo, Direito Penal e Perícia
-Grafotécnica.
+Hero with preventive legal positioning, signed quote, and key stats.
 
-### Serviços (`#servicos`)
-Grade com 6 frentes: Assessoria Consultiva Contínua, Treinamentos, NR-1,
-Compliance, Palestras e Organização de Processos Internos. Cada card leva ao
-bloco de detalhe correspondente.
+### About the founder (`#fundadora`)
 
-### Palestras (`#palestras`)
-Galeria com imagens `public/lecture.png` e `public/course.png`, dois cards de
-preço (Palestra R$ 450 · Workshop/Curso a combinar), motivos para contratar e
-grade de temas com opção de tema customizado.
+Institutional photo (`public/highlight.png`), OAB MG 241.090, bio, and areas of
+expertise: preventive employment law, criminal law, and forensic graphology.
+
+### Services (`#servicos`)
+
+Grid of six service areas with deep-link cards to detailed blocks below.
 
 ### NR-1 (`#nr1`)
-Adequação à NR-1 (riscos psicossociais, PGRS), checklist de implantação e
-apoio da BVC.
 
-### Contato (`#contato`)
-CTA final com diagnóstico gratuito + rodapé com redes sociais:
+NR-1 compliance (psychosocial risks, PGRS), implementation checklist, and CTA.
+
+### Talks (`#palestras`)
+
+Image gallery (`public/lecture.png`, `public/course.png`), format cards, topic
+list, and WhatsApp CTA.
+
+### Contact (`#contato`)
+
+Final CTA and footer with social links:
 
 - WhatsApp: +55 (31) 98480-5500
 - LinkedIn: <https://www.linkedin.com/in/beatrizvieiracosta/>
 - Instagram: <https://www.instagram.com/beatrizvc.adv>
 
-## Diretrizes de design
+## Design notes (site is pt-BR)
 
-- Totalmente em PT-BR.
-- Feel de escritório boutique internacional.
-- Paleta quente (bege, marrom, caramelo).
-- Cantos arredondados em todos os cards e botões (sem bordas retas).
-- Botões elegantes com espaçamento de letras.
-- Animações de fade/scroll via Intersection Observer.
-- Sem emojis — toda iconografia é SVG linear.
+- Boutique law firm aesthetic.
+- Warm palette (beige, brown, caramel).
+- Rounded corners on cards and buttons (no harsh squares).
+- Elegant buttons and letter spacing.
+- Fade/scroll animations via Intersection Observer.
+- No emojis — icons are inline SVGs.

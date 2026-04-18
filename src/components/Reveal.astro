@@ -1,6 +1,7 @@
 ---
 export interface Props {
-  delay?: 0 | 100 | 200 | 300 | 400 | 500 | 600;
+  /** Stagger delay in milliseconds (typical range 0–600). */
+  delay?: number;
   as?: string;
   class?: string;
 }

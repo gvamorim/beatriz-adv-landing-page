@@ -77,7 +77,7 @@ const services = [
     <div class="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
       {
         services.map((s, i) => (
-          <Reveal delay={(i % 3) * 100 as 0 | 100 | 200}>
+          <Reveal delay={(i % 3) * 100}>
             <a
               href={`#${s.id}`}
               class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-[rgba(181,133,74,0.2)] bg-white/[0.03] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-caramelo)] hover:bg-[rgba(181,133,74,0.08)]"
