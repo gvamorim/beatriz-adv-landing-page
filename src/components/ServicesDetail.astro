@@ -1,0 +1,318 @@
+---
+import Icon from "./Icon.astro";
+import Reveal from "./Reveal.astro";
+import { wa, WA_MESSAGES } from "../lib/links";
+
+const blocks = [
+  {
+    id: "assessoria",
+    number: "01",
+    slabel: "Contínuo",
+    title: "Assessoria Consultiva",
+    titleEm: "Contínua",
+    tagline: "O RH jurídico terceirizado da sua empresa.",
+    badge: "Mensalidade",
+    badgeVariant: "solid" as const,
+    layout: "left" as const,
+    ctaMessage: WA_MESSAGES.assessoria,
+    ctaLabel: "Conversar sobre a assessoria",
+    ctaIntro: "Quer saber como funciona na prática?",
+    paragraphs: [
+      "A <strong>Assessoria Consultiva Contínua</strong> é o serviço principal da BVC — suporte jurídico trabalhista presente no dia a dia do RH. Cada desligamento, advertência, mudança de função ou negociação pode ser validado antes de acontecer, com segurança e linguagem que o RH entende.",
+    ],
+    deliverablesTitle: "O que está incluso",
+    deliverables: [
+      {
+        icon: "phone",
+        html: "<strong>Consultas ilimitadas</strong> por WhatsApp sobre casos trabalhistas do dia a dia",
+      },
+      {
+        icon: "document",
+        html: "<strong>Revisão de documentos</strong>: contratos, advertências, termos de desligamento",
+      },
+      {
+        icon: "shield",
+        html: "<strong>Orientação em demissões</strong>: modalidade correta, cálculos, documentação e riscos",
+      },
+      {
+        icon: "alert",
+        html: "<strong>Alertas de mudanças na legislação</strong> com impacto direto na operação",
+      },
+      {
+        icon: "chart",
+        html: "<strong>Reuniões periódicas</strong> de acompanhamento e revisão de riscos",
+      },
+      {
+        icon: "scale",
+        html: "<strong>Suporte em fiscalizações</strong> e notificações do Ministério do Trabalho",
+      },
+    ],
+  },
+  {
+    id: "treinamentos",
+    number: "02",
+    slabel: "In company",
+    title: "Treinamentos para",
+    titleEm: "Gestores e Equipes",
+    tagline:
+      "Gestores que entendem o básico da CLT protegem a empresa — e o RH.",
+    badge: "Sob demanda",
+    badgeVariant: "outline" as const,
+    layout: "right" as const,
+    ctaMessage: WA_MESSAGES.treinamentos,
+    ctaLabel: "Montar meu treinamento",
+    ctaIntro: "Quer montar um treinamento personalizado?",
+    paragraphs: [
+      "Gestores que desconhecem regras trabalhistas básicas são um dos principais geradores de passivo. Os <strong>Treinamentos da BVC</strong> transformam líderes em aliados do RH, com linguagem direta, casos reais e foco em <strong>comportamento e decisão</strong> — não memorização de artigos.",
+    ],
+    deliverablesTitle: "Temas disponíveis",
+    deliverables: [
+      {
+        icon: "briefcase",
+        html: "<strong>CLT na prática para gestores</strong>: jornada, horas extras, banco de horas, férias",
+      },
+      {
+        icon: "alert",
+        html: "<strong>Como advertir, suspender e demitir</strong> sem gerar passivo trabalhista",
+      },
+      {
+        icon: "users",
+        html: "<strong>Relações de trabalho e diversidade</strong>: ambiente respeitoso e legalmente seguro",
+      },
+      {
+        icon: "sparkle",
+        html: "<strong>Saúde mental e NR-1</strong>: responsabilidades do gestor e boas práticas",
+      },
+      {
+        icon: "document",
+        html: "<strong>Contratação sem erro</strong>: modalidades, documentação e armadilhas comuns",
+      },
+      {
+        icon: "message",
+        html: "<strong>Comunicação em processos disciplinares</strong>: como documentar e comunicar corretamente",
+      },
+    ],
+  },
+  {
+    id: "compliance",
+    number: "04",
+    slabel: "Programa recorrente",
+    title: "Compliance",
+    titleEm: "Trabalhista",
+    tagline:
+      "Empresa organizada não só obedece a lei — ela a usa como vantagem competitiva.",
+    badge: "Recorrente",
+    badgeVariant: "outline" as const,
+    layout: "left" as const,
+    ctaMessage: WA_MESSAGES.compliance,
+    ctaLabel: "Iniciar o programa",
+    ctaIntro: "Quer estruturar o compliance trabalhista?",
+    paragraphs: [
+      "O <strong>Programa de Compliance Trabalhista da BVC</strong> organiza a operação de pessoas de forma sólida — políticas claras, processos documentados e cultura de conformidade integrada ao dia a dia, para que a empresa cresça sem acumular riscos invisíveis.",
+    ],
+    deliverablesTitle: "O que o programa inclui",
+    deliverables: [
+      {
+        icon: "building",
+        html: "<strong>Auditoria trabalhista inicial</strong>: mapeamento completo de riscos e irregularidades",
+      },
+      {
+        icon: "book",
+        html: "<strong>Regulamento interno</strong>: elaboração ou revisão com base na cultura e na lei",
+      },
+      {
+        icon: "document",
+        html: "<strong>Políticas internas</strong>: código de conduta, uso de benefícios, jornada, home office",
+      },
+      {
+        icon: "pen",
+        html: "<strong>Revisão de processos</strong> de admissão, gestão e desligamento",
+      },
+      {
+        icon: "target",
+        html: "<strong>Implantação e treinamento</strong> das equipes de RH e liderança",
+      },
+      {
+        icon: "chart",
+        html: "<strong>Monitoramento contínuo</strong> e atualização periódica das políticas",
+      },
+    ],
+  },
+  {
+    id: "processos",
+    number: "06",
+    slabel: "Avulso ou incluso",
+    title: "Organização de",
+    titleEm: "Processos Internos",
+    tagline:
+      "O melhor momento para organizar é antes de precisar provar que estava certo.",
+    badge: "Avulso ou incluso",
+    badgeVariant: "outline" as const,
+    layout: "right" as const,
+    ctaMessage: WA_MESSAGES.processos,
+    ctaLabel: "Iniciar a revisão",
+    ctaIntro: "Quer mapear como está a documentação?",
+    paragraphs: [
+      "Contratos incompletos, políticas desatualizadas e processos admissionais com lacunas são das principais fontes de passivo trabalhista. A BVC faz a <strong>revisão e organização completa dos processos internos</strong> ligados à gestão de pessoas — do primeiro dia ao desligamento.",
+    ],
+    deliverablesTitle: "O que pode ser revisado e organizado",
+    deliverables: [
+      {
+        icon: "pen",
+        html: "<strong>Contratos de trabalho</strong>: elaboração ou revisão completa por tipo de vínculo",
+      },
+      {
+        icon: "folder",
+        html: "<strong>Documentos admissionais</strong>: checklist, termos de ciência e responsabilidade",
+      },
+      {
+        icon: "document",
+        html: "<strong>Política de benefícios</strong>: vale-alimentação, plano de saúde, flexibilidade e outros",
+      },
+      {
+        icon: "alert",
+        html: "<strong>Procedimento disciplinar</strong>: advertência, suspensão e demissão por justa causa",
+      },
+      {
+        icon: "home",
+        html: "<strong>Contratos de home office e trabalho híbrido</strong> com aditivos corretos",
+      },
+      {
+        icon: "chevron-right",
+        html: "<strong>Processo de desligamento</strong>: documentação, cálculos e comunicação segura",
+      },
+    ],
+  },
+];
+---
+
+<section class="py-20 md:py-24" aria-label="Serviços em detalhe">
+  <div class="container-app max-w-3xl text-center">
+    <Reveal>
+      <span class="eyebrow-plain">Serviços em detalhe</span>
+    </Reveal>
+    <Reveal delay={100}>
+      <h2 class="mt-6 font-serif text-[clamp(1.9rem,3.4vw,2.9rem)] font-bold leading-[1.15] text-[var(--color-marrom)]">
+        Tudo o que o seu RH precisa,<br />
+        <em>em detalhe.</em>
+      </h2>
+    </Reveal>
+    <Reveal delay={200}>
+      <p class="body-lead mt-8">
+        Cada serviço foi pensado para o dia a dia de quem cuida de pessoas e precisa
+        de respaldo jurídico real — não só teoria.
+      </p>
+    </Reveal>
+  </div>
+
+  {
+    blocks.map((block, idx) => (
+      <>
+        <article
+          id={block.id}
+          class:list={[
+            "relative scroll-mt-28 py-12 md:py-16",
+            idx % 2 === 1 && "bg-white/50",
+          ]}
+        >
+          <div class="container-app">
+            <div
+              class:list={[
+                "grid grid-cols-1 gap-10 lg:gap-16",
+                block.layout === "left"
+                  ? "lg:grid-cols-[5fr_7fr]"
+                  : "lg:grid-cols-[7fr_5fr]",
+              ]}
+            >
+              <Reveal
+                class={`order-1 ${
+                  block.layout === "right" ? "lg:order-2" : ""
+                }`}
+              >
+                <div class="rounded-3xl bg-white/70 p-8 ring-1 ring-[rgba(181,133,74,0.22)] md:p-10">
+                  <div class="font-serif text-[4.5rem] font-bold leading-none text-[var(--color-caramelo)] opacity-20">
+                    {block.number}
+                  </div>
+                  <span class="mt-2 block text-[0.7rem] font-medium uppercase tracking-[0.24em] text-[var(--color-caramelo)]">
+                    {block.slabel}
+                  </span>
+                  <h3 class="mt-3 font-serif text-[clamp(1.75rem,2.6vw,2.4rem)] font-bold leading-[1.15] text-[var(--color-marrom)]">
+                    {block.title} <em>{block.titleEm}</em>
+                  </h3>
+                  <p class="mt-5 font-serif text-[1.05rem] italic leading-[1.5] text-[var(--color-marrom-claro)]">
+                    "{block.tagline}"
+                  </p>
+                  <span
+                    class:list={[
+                      "mt-5 inline-flex items-center rounded-full px-4 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.2em]",
+                      block.badgeVariant === "solid"
+                        ? "bg-[var(--color-caramelo)] text-[var(--color-bege)]"
+                        : "border border-[var(--color-caramelo)] text-[var(--color-caramelo)]",
+                    ]}
+                  >
+                    {block.badge}
+                  </span>
+
+                  <div class="mt-8 rounded-2xl bg-[var(--color-marrom)] p-6 md:p-7">
+                    <p class="text-[0.9rem] font-light leading-[1.6] text-[rgba(242,235,224,0.75)]">
+                      {block.ctaIntro}
+                    </p>
+                    <a
+                      href={wa(block.ctaMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-primary mt-4 w-full justify-center text-[0.72rem]"
+                    >
+                      <Icon name="whatsapp" size={16} />
+                      {block.ctaLabel}
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal
+                delay={100}
+                class={`order-2 ${
+                  block.layout === "right" ? "lg:order-1" : ""
+                }`}
+              >
+                <div class="space-y-5">
+                  {block.paragraphs.map((p) => (
+                    <p
+                      class="text-[1rem] font-light leading-[1.85] text-[var(--color-muted)] [&_strong]:font-medium [&_strong]:text-[var(--color-marrom)]"
+                      set:html={p}
+                    />
+                  ))}
+                </div>
+
+                <div class="mt-10">
+                  <h4 class="font-serif text-[1.1rem] font-bold tracking-[0.02em] text-[var(--color-marrom)]">
+                    {block.deliverablesTitle}
+                  </h4>
+                  <ul class="mt-5 space-y-3">
+                    {block.deliverables.map((d) => (
+                      <li class="group flex items-start gap-4 rounded-2xl border-l-2 border-[var(--color-caramelo)] bg-[rgba(181,133,74,0.08)] px-5 py-4 transition-colors hover:bg-[rgba(181,133,74,0.14)]">
+                        <span class="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[rgba(181,133,74,0.35)] bg-white text-[var(--color-caramelo)]">
+                          <Icon name={d.icon} size={16} />
+                        </span>
+                        <span
+                          class="text-[0.92rem] leading-[1.55] text-[var(--color-texto)] [&_strong]:font-medium [&_strong]:text-[var(--color-marrom)]"
+                          set:html={d.html}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+              </Reveal>
+            </div>
+          </div>
+        </article>
+
+        {idx < blocks.length - 1 && (
+          <div class="divider-soft container-app" />
+        )}
+      </>
+    ))
+  }
+</section>

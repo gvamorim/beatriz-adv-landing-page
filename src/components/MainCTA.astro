@@ -1,0 +1,52 @@
+---
+import Icon from "./Icon.astro";
+import Reveal from "./Reveal.astro";
+import { wa, WA_MESSAGES } from "../lib/links";
+---
+
+<section
+  id="contato"
+  class="relative overflow-hidden scroll-mt-28 bg-[var(--color-marrom)] py-24 md:py-32"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(181,133,74,0.18),transparent_70%)]"
+  >
+  </div>
+
+  <div class="container-app relative max-w-3xl text-center">
+    <Reveal>
+      <span class="eyebrow-plain text-[var(--color-caramelo-lt)]">Próximo passo</span>
+    </Reveal>
+    <Reveal delay={100}>
+      <h2 class="mt-6 font-serif text-[clamp(2rem,4vw,3.4rem)] font-bold leading-[1.15] text-[var(--color-bege)]">
+        O RH merece ter
+        <em class="text-[var(--color-caramelo-lt)]">suporte jurídico</em>
+        de verdade.
+      </h2>
+    </Reveal>
+    <Reveal delay={200}>
+      <p class="mx-auto mt-6 max-w-xl text-[1rem] font-light leading-[1.75] text-[rgba(242,235,224,0.65)]">
+        A Beatriz faz um diagnóstico gratuito antes de qualquer proposta. Conte
+        a sua necessidade e receba um plano sob medida para a sua empresa.
+      </p>
+    </Reveal>
+    <Reveal delay={300}>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <a
+          href={wa(WA_MESSAGES.diagnostico)}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <Icon name="whatsapp" size={16} />
+          Agendar diagnóstico gratuito
+        </a>
+        <a href="#servicos" class="btn btn-ghost-light">
+          Ver todos os serviços
+          <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+    </Reveal>
+  </div>
+</section>

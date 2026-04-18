@@ -1,0 +1,89 @@
+---
+import Icon from "./Icon.astro";
+import Reveal from "./Reveal.astro";
+import { wa, WA_MESSAGES } from "../lib/links";
+
+const items = [
+  "Mapeamento de riscos psicossociais na empresa",
+  "Elaboração e revisão do PGRS",
+  "Treinamento de líderes e equipes de RH",
+  "Criação de políticas de conduta e bem-estar",
+  "Documentação completa para auditoria",
+  "Suporte contínuo para manutenção da conformidade",
+];
+---
+
+<section
+  id="nr1"
+  class="relative overflow-hidden scroll-mt-28 py-24 md:py-32"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-12 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[14rem] font-bold leading-none text-[var(--color-caramelo)] opacity-[0.07] md:block"
+  >
+    NR-1
+  </div>
+
+  <div class="container-app grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <div>
+      <Reveal>
+        <span class="eyebrow">Obrigação legal em 2026</span>
+      </Reveal>
+      <Reveal delay={100}>
+        <h2 class="section-title mt-6">
+          A NR-1 chegou.<br />
+          O seu <em>RH está pronto?</em>
+        </h2>
+      </Reveal>
+      <Reveal delay={200}>
+        <p class="body-lead mt-6">
+          A atualização da NR-1 incluiu os riscos psicossociais no Gerenciamento
+          de Riscos Ocupacionais. Toda empresa precisa mapear, documentar e
+          gerenciar fatores como estresse, assédio e sobrecarga — não é só
+          compliance, é proteção real.
+        </p>
+      </Reveal>
+      <Reveal delay={400}>
+        <div class="mt-8 flex items-start gap-4 rounded-2xl border-l-2 border-[var(--color-caramelo)] bg-[rgba(181,133,74,0.1)] p-5">
+          <span class="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-caramelo)] text-[var(--color-bege)]">
+            <Icon name="alert" size={16} />
+          </span>
+          <p class="text-[0.92rem] font-medium leading-[1.55] text-[var(--color-marrom-med)]">
+            Empresas que não se adequarem à NR-1 estão sujeitas a autuações,
+            embargos e passivo trabalhista elevado.
+          </p>
+        </div>
+      </Reveal>
+      <Reveal delay={500}>
+        <div class="mt-8">
+          <a
+            href={wa(WA_MESSAGES.nr1)}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            <Icon name="whatsapp" size={16} />
+            Falar sobre a NR-1
+          </a>
+        </div>
+      </Reveal>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      {
+        items.map((text, i) => (
+          <Reveal delay={(i * 80) as 0 | 100 | 200 | 300 | 400 | 500 | 600}>
+            <div class="flex items-start gap-4 rounded-2xl border border-[rgba(181,133,74,0.22)] bg-white p-5 transition-all duration-300 hover:border-[var(--color-caramelo)] hover:shadow-[0_12px_28px_-16px_rgba(181,133,74,0.45)]">
+              <span class="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[var(--color-caramelo)] text-[var(--color-bege)]">
+                <Icon name="check" size={16} strokeWidth={2.2} />
+              </span>
+              <span class="text-[0.95rem] leading-[1.55] text-[var(--color-texto)]">
+                {text}
+              </span>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

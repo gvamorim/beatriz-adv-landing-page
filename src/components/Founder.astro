@@ -1,0 +1,127 @@
+---
+import Icon from "./Icon.astro";
+import Reveal from "./Reveal.astro";
+import { wa, WA_MESSAGES } from "../lib/links";
+
+const expertise = [
+  "Direito Trabalhista Preventivo",
+  "Direito Penal",
+  "Perícia Grafotécnica",
+];
+---
+
+<section
+  id="fundadora"
+  class="relative overflow-hidden bg-[var(--color-bege-escuro)]/60 py-24 md:py-32"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[18rem] font-bold leading-none text-[var(--color-caramelo)] opacity-[0.05] md:block"
+  >
+    B
+  </div>
+
+  <div class="container-app grid grid-cols-1 items-center gap-14 lg:grid-cols-[5fr_6fr] lg:gap-20">
+    <Reveal class="relative">
+      <div
+        class="group relative mx-auto w-full max-w-[460px] overflow-hidden rounded-[2.5rem] shadow-[0_40px_80px_-30px_rgba(61,43,31,0.45)] ring-1 ring-[rgba(181,133,74,0.35)]"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}highlight.png`}
+          alt="Beatriz Vieira Costa, fundadora da BVC Advocacia Consultiva"
+          class="aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          loading="lazy"
+        />
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 rounded-[2.5rem] ring-1 ring-inset ring-[rgba(242,235,224,0.2)]"
+        >
+        </div>
+      </div>
+
+      <!-- gold leaf corner -->
+      <div
+        aria-hidden="true"
+        class="absolute -left-4 -bottom-4 hidden h-24 w-24 rounded-[2rem] border border-[var(--color-caramelo)] md:block"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        class="absolute -right-3 -top-3 hidden h-16 w-16 rounded-full border border-[var(--color-caramelo)] bg-[var(--color-bege-escuro)] md:block"
+      >
+      </div>
+    </Reveal>
+
+    <div class="flex flex-col">
+      <Reveal>
+        <span class="eyebrow">Sobre a Fundadora</span>
+      </Reveal>
+
+      <Reveal delay={100}>
+        <h2 class="mt-6 font-serif text-[clamp(2.1rem,3.8vw,3.2rem)] font-bold leading-[1.1] text-[var(--color-marrom)]">
+          Beatriz Vieira Costa
+        </h2>
+        <p class="mt-3 text-[0.8rem] font-medium uppercase tracking-[0.24em] text-[var(--color-caramelo)]">
+          OAB MG 241.090
+        </p>
+      </Reveal>
+
+      <Reveal delay={200}>
+        <blockquote
+          class="mt-8 border-l-2 border-[var(--color-caramelo)] pl-6 font-serif text-[1.35rem] italic leading-[1.5] text-[var(--color-marrom-med)] md:text-[1.5rem]"
+        >
+          A segurança de uma empresa não reside apenas no cumprimento da lei,
+          mas na antecipação do risco.
+        </blockquote>
+      </Reveal>
+
+      <Reveal delay={300}>
+        <div class="mt-8 space-y-5 text-[1rem] font-light leading-[1.85] text-[var(--color-muted)]">
+          <p>
+            Com uma trajetória marcada pela atuação sênior e estratégica, Beatriz
+            Vieira Costa é a fundadora da BVC Advocacia Consultiva. Sua expertise
+            une o <strong class="font-medium text-[var(--color-marrom)]">Direito
+            Trabalhista Preventivo</strong> à complexidade do <strong class="font-medium text-[var(--color-marrom)]">Direito
+            Penal</strong> e à precisão da <strong class="font-medium text-[var(--color-marrom)]">Perícia
+            Grafotécnica</strong>, oferecendo uma blindagem 360° para organizações
+            que não abrem mão do compliance e da integridade.
+          </p>
+          <p>
+            Como braço direito de gestores e departamentos de RH, Beatriz atua na
+            raiz dos problemas corporativos. Seja na implementação de políticas
+            de prevenção, na condução de treinamentos de liderança ou na análise
+            técnica de fraudes e documentos, sua missão é garantir que a empresa
+            opere com previsibilidade e segurança total. Com forte presença no
+            ecossistema de networking empresarial de Belo Horizonte, ela traduz
+            o rigor jurídico em decisões ágeis que protegem o caixa e a reputação
+            das empresas.
+          </p>
+        </div>
+      </Reveal>
+
+      <Reveal delay={400}>
+        <ul class="mt-10 flex flex-wrap gap-2">
+          {expertise.map((label) => <li class="chip">{label}</li>)}
+        </ul>
+      </Reveal>
+
+      <Reveal delay={500}>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a
+            href={wa(WA_MESSAGES.general)}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            <Icon name="whatsapp" size={16} />
+            Falar com a Beatriz
+          </a>
+          <a href="#servicos" class="btn btn-ghost">
+            Ver serviços
+            <Icon name="arrow-right" size={16} />
+          </a>
+        </div>
+      </Reveal>
+    </div>
+  </div>
+</section>

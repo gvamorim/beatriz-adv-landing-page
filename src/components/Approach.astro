@@ -1,0 +1,71 @@
+---
+import Reveal from "./Reveal.astro";
+
+const pillars = [
+  {
+    num: "01",
+    title: "Diagnóstico antes de tudo",
+    desc: "Antes de qualquer proposta, entendemos a realidade da empresa: estrutura, riscos e necessidades do RH.",
+  },
+  {
+    num: "02",
+    title: "Linguagem que você usa",
+    desc: "Sem juridiquês. A Beatriz traduz as normas para a realidade da gestão de pessoas — direto e aplicável.",
+  },
+  {
+    num: "03",
+    title: "Parceria contínua",
+    desc: "O RH não pode ter dúvida jurídica e não ter com quem falar. A assessoria é suporte real, não só contrato assinado.",
+  },
+  {
+    num: "04",
+    title: "Visão de negócio",
+    desc: "A BVC entende que o RH tem metas, pressão e cultura para construir. As orientações são práticas e viáveis.",
+  },
+];
+---
+
+<section class="py-24 md:py-32">
+  <div class="container-app grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <div>
+      <Reveal>
+        <span class="eyebrow">Como a BVC trabalha</span>
+      </Reveal>
+      <Reveal delay={100}>
+        <h2 class="section-title mt-6">
+          Presente antes <em>do problema</em>.<br />
+          Não só depois.
+        </h2>
+      </Reveal>
+      <Reveal delay={200}>
+        <p class="body-lead mt-6">
+          A maioria dos escritórios aparece quando a empresa já está na
+          reclamatória. A BVC age diferente: entra na operação como suporte
+          jurídico do RH, orientando decisões do dia a dia antes que virem passivo.
+        </p>
+      </Reveal>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      {
+        pillars.map((p, i) => (
+          <Reveal delay={(i * 100) as 0 | 100 | 200 | 300}>
+            <div class="flex items-start gap-5 rounded-2xl border border-[rgba(181,133,74,0.22)] bg-white/60 p-6 transition-all duration-300 hover:border-[var(--color-caramelo)] hover:bg-[rgba(181,133,74,0.06)]">
+              <div class="font-serif text-[2rem] font-bold leading-none text-[var(--color-caramelo)] opacity-60">
+                {p.num}
+              </div>
+              <div>
+                <h3 class="font-serif text-[1.1rem] font-bold text-[var(--color-marrom)]">
+                  {p.title}
+                </h3>
+                <p class="mt-2 text-[0.9rem] font-light leading-[1.6] text-[var(--color-muted)]">
+                  {p.desc}
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </div>
+</section>

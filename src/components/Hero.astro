@@ -1,0 +1,125 @@
+---
+import Icon from "./Icon.astro";
+import { wa, WA_MESSAGES } from "../lib/links";
+
+const stats = [
+  { num: "360°", label: "blindagem jurídica" },
+  { num: "Prev.", label: "atuação preventiva" },
+  { num: "OAB/MG", label: "241.090" },
+  { num: "BH+", label: "ecossistema empresarial" },
+];
+
+const pillars = [
+  "Trabalhista preventivo",
+  "Direito penal empresarial",
+  "Perícia grafotécnica",
+];
+---
+
+<section
+  id="inicio"
+  class="relative overflow-hidden pt-[110px] pb-16 md:pt-[130px] md:pb-24"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-40 top-10 hidden h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(181,133,74,0.18),transparent_70%)] md:block"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-24 bottom-0 hidden select-none font-serif text-[16rem] font-bold leading-none text-[var(--color-marrom)] opacity-[0.04] md:block"
+  >
+    BVC
+  </div>
+
+  <div class="container-app grid grid-cols-1 items-stretch gap-10 md:gap-16 lg:grid-cols-[6fr_5fr]">
+    <div class="flex flex-col justify-center py-6 md:py-12">
+      <span class="eyebrow fade-up-1">
+        Advocacia Consultiva Preventiva · Belo Horizonte
+      </span>
+
+      <h1
+        class="fade-up-2 mt-8 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1.04] text-[var(--color-marrom)]"
+      >
+        Proteção jurídica <em>antes</em> que o problema exista.
+      </h1>
+
+      <p
+        class="fade-up-3 mt-8 max-w-[540px] text-[1.05rem] font-light leading-[1.75] text-[var(--color-muted)]"
+      >
+        A BVC Advocacia Consultiva atua como o braço jurídico estratégico da sua
+        empresa. Unindo Direito Trabalhista preventivo, Direito Penal empresarial
+        e Perícia Grafotécnica, oferecemos blindagem 360° contra riscos,
+        autuações e passivos — antes que eles cheguem ao seu caixa ou à sua reputação.
+      </p>
+
+      <ul class="fade-up-4 mt-8 flex flex-wrap gap-2">
+        {pillars.map((p) => <li class="chip">{p}</li>)}
+      </ul>
+
+      <div class="fade-up-5 mt-10 flex flex-wrap items-center gap-3">
+        <a
+          href={wa(WA_MESSAGES.diagnostico)}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <Icon name="whatsapp" size={16} />
+          Agendar diagnóstico
+        </a>
+        <a href="#servicos" class="btn btn-ghost">
+          Como atuamos
+          <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+    </div>
+
+    <div class="relative flex items-center">
+      <div
+        class="fade-up-3 relative w-full overflow-hidden rounded-[2rem] bg-[var(--color-marrom)] p-10 md:p-12"
+      >
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(181,133,74,0.35),transparent_70%)]"
+        >
+        </div>
+
+        <div class="relative">
+          <Icon
+            name="quote"
+            size={32}
+            class="text-[var(--color-caramelo-lt)] opacity-70"
+          />
+          <blockquote
+            class="mt-4 border-l-2 border-[var(--color-caramelo)] pl-6 font-serif text-[1.5rem] font-normal italic leading-[1.5] text-[var(--color-bege)] md:text-[1.7rem]"
+          >
+            A segurança de uma empresa não reside apenas no cumprimento da lei,
+            mas na antecipação do risco.
+          </blockquote>
+          <p
+            class="mt-5 pl-6 text-[0.75rem] font-medium uppercase tracking-[0.2em] text-[rgba(242,235,224,0.6)]"
+          >
+            Beatriz Vieira Costa · Fundadora
+          </p>
+        </div>
+
+        <div
+          class="relative mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-l-2 border-[rgba(181,133,74,0.35)] pl-6"
+        >
+          {
+            stats.map((s) => (
+              <div>
+                <div class="font-serif text-[1.9rem] font-bold leading-none text-[var(--color-caramelo-lt)]">
+                  {s.num}
+                </div>
+                <div class="mt-1 text-[0.72rem] font-light tracking-wide text-[rgba(242,235,224,0.55)]">
+                  {s.label}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

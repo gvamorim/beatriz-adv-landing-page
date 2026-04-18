@@ -1,0 +1,121 @@
+---
+import Icon from "./Icon.astro";
+import {
+  NAV_LINKS,
+  wa,
+  WA_MESSAGES,
+  LINKEDIN_URL,
+  INSTAGRAM_URL,
+  WHATSAPP_DISPLAY,
+} from "../lib/links";
+
+const year = new Date().getFullYear();
+const currentYear = year < 2026 ? 2026 : year;
+
+const socials = [
+  {
+    href: wa(WA_MESSAGES.general),
+    label: "WhatsApp",
+    icon: "whatsapp",
+    hint: WHATSAPP_DISPLAY,
+  },
+  {
+    href: LINKEDIN_URL,
+    label: "LinkedIn",
+    icon: "linkedin",
+    hint: "beatrizvieiracosta",
+  },
+  {
+    href: INSTAGRAM_URL,
+    label: "Instagram",
+    icon: "instagram",
+    hint: "@beatrizvc.adv",
+  },
+];
+---
+
+<footer class="bg-[#1E0F08] text-[var(--color-bege)]">
+  <div class="container-app py-16 md:py-20">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+      <!-- Brand -->
+      <div>
+        <div class="font-serif text-[1.5rem] font-bold tracking-[0.04em]">
+          BVC <span class="text-[var(--color-caramelo-lt)]">Advocacia Consultiva</span>
+        </div>
+        <p class="mt-4 max-w-xs text-[0.9rem] font-light leading-[1.7] text-[rgba(242,235,224,0.55)]">
+          Assessoria jurídica consultiva para empresas que não abrem mão da prevenção,
+          do compliance e da integridade.
+        </p>
+        <div class="mt-6 flex items-center gap-2 text-[0.78rem] font-light text-[rgba(242,235,224,0.5)]">
+          <Icon name="map-pin" size={14} class="text-[var(--color-caramelo-lt)]" />
+          Belo Horizonte · Minas Gerais
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <nav aria-label="Navegação do rodapé">
+        <h3 class="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-[var(--color-caramelo-lt)]">
+          Navegação
+        </h3>
+        <ul class="mt-5 grid grid-cols-2 gap-y-3 text-[0.9rem] text-[rgba(242,235,224,0.7)]">
+          {
+            NAV_LINKS.map((link) => (
+              <li>
+                <a
+                  href={`#${link.id}`}
+                  class="inline-flex items-center gap-1 transition-colors hover:text-[var(--color-caramelo-lt)]"
+                >
+                  <span class="h-px w-3 bg-current opacity-60" />
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- Socials -->
+      <div>
+        <h3 class="text-[0.72rem] font-medium uppercase tracking-[0.24em] text-[var(--color-caramelo-lt)]">
+          Conecte-se
+        </h3>
+        <ul class="mt-5 space-y-3">
+          {
+            socials.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  class="group inline-flex items-center gap-3 text-[0.9rem] text-[rgba(242,235,224,0.75)] transition-colors hover:text-[var(--color-caramelo-lt)]"
+                >
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(181,133,74,0.35)] text-[var(--color-caramelo-lt)] transition-all group-hover:border-[var(--color-caramelo)] group-hover:bg-[rgba(181,133,74,0.15)]">
+                    <Icon name={s.icon} size={16} />
+                  </span>
+                  <span class="flex flex-col leading-tight">
+                    <span class="text-[0.78rem] font-medium tracking-wide text-[var(--color-bege)]">
+                      {s.label}
+                    </span>
+                    <span class="text-[0.78rem] font-light text-[rgba(242,235,224,0.5)]">
+                      {s.hint}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-[rgba(181,133,74,0.2)] pt-8 md:flex-row md:items-center">
+      <p class="text-[0.78rem] font-light text-[rgba(242,235,224,0.45)]">
+        © {currentYear} · Beatriz Vieira Costa · OAB/MG 241.090
+      </p>
+      <p class="text-[0.76rem] font-light text-[rgba(242,235,224,0.35)]">
+        BVC Advocacia Consultiva · Todos os direitos reservados
+      </p>
+    </div>
+  </div>
+</footer>

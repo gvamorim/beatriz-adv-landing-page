@@ -1,0 +1,159 @@
+---
+import Icon from "./Icon.astro";
+import Reveal from "./Reveal.astro";
+import { wa, WA_MESSAGES } from "../lib/links";
+
+const gallery = [
+  {
+    src: `${import.meta.env.BASE_URL}lecture.png`,
+    caption: "Palestra corporativa",
+    hint: "Conscientização jurídica para líderes e equipes",
+  },
+  {
+    src: `${import.meta.env.BASE_URL}course.png`,
+    caption: "Curso in-company",
+    hint: "Capacitação técnica adaptada à sua empresa",
+  },
+];
+
+const formats = [
+  {
+    icon: "mic",
+    label: "Palestra",
+    desc: "Até 1h30 · tema à escolha ou customizado · online ou presencial",
+  },
+  {
+    icon: "graduation",
+    label: "Workshop · Curso",
+    desc: "Formato, carga horária e conteúdo moldados à necessidade da sua equipe",
+  },
+];
+
+const temas = [
+  "Saúde mental no trabalho e NR-1",
+  "Assédio moral e sexual: prevenção e resposta",
+  "Diversidade e legislação trabalhista",
+  "Home office e trabalho híbrido",
+  "Relações de trabalho no Brasil",
+  "Tema customizado para a sua empresa",
+];
+---
+
+<section
+  id="palestras"
+  class="relative overflow-hidden bg-[var(--color-bege-escuro)]/60 py-20 md:py-28"
+>
+  <div class="container-app">
+    <div class="mx-auto max-w-2xl text-center">
+      <Reveal>
+        <span class="eyebrow-plain">Palestras · Workshops · Cursos</span>
+      </Reveal>
+      <Reveal delay={100}>
+        <h2 class="mt-6 font-serif text-[clamp(2rem,3.6vw,3rem)] font-bold leading-[1.15] text-[var(--color-marrom)]">
+          Equipe consciente, empresa <em>protegida.</em>
+        </h2>
+      </Reveal>
+      <Reveal delay={200}>
+        <p class="body-lead mt-6">
+          Experiências práticas de conscientização jurídica, moldadas ao setor
+          e aos desafios reais da sua equipe. Mais do que informar, transformam
+          comportamento — e previnem conflitos antes que virem reclamatória.
+        </p>
+      </Reveal>
+    </div>
+
+    <!-- Gallery -->
+    <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+      {
+        gallery.map((item, i) => (
+          <Reveal delay={(i * 100) as 0 | 100}>
+            <figure class="group relative overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-30px_rgba(61,43,31,0.35)] ring-1 ring-[rgba(181,133,74,0.3)]">
+              <img
+                src={item.src}
+                alt={item.caption}
+                class="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                loading="lazy"
+              />
+              <div
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(61,43,31,0.8)] via-[rgba(61,43,31,0.15)] to-transparent"
+              />
+              <figcaption class="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                <span class="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-[var(--color-caramelo-lt)]">
+                  {item.hint}
+                </span>
+                <div class="mt-2 font-serif text-[1.5rem] font-bold leading-tight text-[var(--color-bege)]">
+                  {item.caption}
+                </div>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))
+      }
+    </div>
+
+    <!-- Formats + topics -->
+    <div class="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-[5fr_7fr] lg:gap-14">
+      <Reveal>
+        <div class="space-y-4">
+          {
+            formats.map((f) => (
+              <div class="flex items-start gap-4 rounded-2xl border border-[rgba(181,133,74,0.25)] bg-white/70 p-6">
+                <span class="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-[rgba(181,133,74,0.35)] bg-[rgba(181,133,74,0.1)] text-[var(--color-caramelo)]">
+                  <Icon name={f.icon} size={18} />
+                </span>
+                <div>
+                  <h3 class="font-serif text-[1.2rem] font-bold text-[var(--color-marrom)]">
+                    {f.label}
+                  </h3>
+                  <p class="mt-2 text-[0.9rem] font-light leading-[1.6] text-[var(--color-muted)]">
+                    {f.desc}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+          <div class="rounded-2xl bg-[var(--color-marrom)] p-6">
+            <p class="text-[0.9rem] font-light leading-[1.6] text-[rgba(242,235,224,0.75)]">
+              Cada palestra é moldada à realidade da sua empresa. Conte o
+              contexto e receba uma proposta sob medida.
+            </p>
+            <a
+              href={wa(WA_MESSAGES.palestras)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary mt-4 w-full justify-center text-[0.72rem]"
+            >
+              <Icon name="whatsapp" size={16} />
+              Solicitar proposta
+            </a>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={100}>
+        <div>
+          <h4 class="font-serif text-[1.15rem] font-bold text-[var(--color-marrom)]">
+            Temas disponíveis — ou crie o seu
+          </h4>
+          <ul class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {
+              temas.map((t, i) => (
+                <li class="flex items-start gap-3 rounded-2xl border-l-2 border-[var(--color-caramelo)] bg-[rgba(181,133,74,0.08)] px-5 py-4">
+                  <span class="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-white text-[var(--color-caramelo)] ring-1 ring-[rgba(181,133,74,0.35)]">
+                    <span class="font-serif text-[0.8rem] font-bold leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </span>
+                  <span class="text-[0.9rem] leading-[1.5] text-[var(--color-texto)]">
+                    {t}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </Reveal>
+    </div>
+  </div>
+</section>

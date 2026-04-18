@@ -1,0 +1,143 @@
+---
+import Icon from "./Icon.astro";
+import { NAV_LINKS, wa, WA_MESSAGES } from "../lib/links";
+
+const waHref = wa(WA_MESSAGES.general);
+---
+
+<nav
+  data-nav
+  class="nav fixed inset-x-0 top-0 z-50 border-b border-[rgba(181,133,74,0.18)] bg-[rgba(242,235,224,0.88)] backdrop-blur-md transition-all"
+>
+  <div class="container-app flex h-[74px] items-center justify-between">
+    <a
+      href="#inicio"
+      class="font-serif text-[1.35rem] font-bold tracking-[0.06em] text-[var(--color-marrom)]"
+      aria-label="BVC Advocacia Consultiva - Início"
+    >
+      BVC <span class="text-[var(--color-caramelo)]">Advocacia</span>
+    </a>
+
+    <ul class="hidden items-center gap-8 lg:flex">
+      {
+        NAV_LINKS.map((link) => (
+          <li>
+            <a
+              href={`#${link.id}`}
+              data-nav-link={link.id}
+              class="nav-jump text-[0.72rem] font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-caramelo)]"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href={waHref} target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm hidden md:inline-flex">
+        <Icon name="whatsapp" size={16} />
+        Fale com a Beatriz
+      </a>
+
+      <button
+        type="button"
+        data-menu-toggle
+        aria-label="Abrir menu"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(181,133,74,0.35)] text-[var(--color-marrom)] transition-colors hover:border-[var(--color-caramelo)] hover:text-[var(--color-caramelo)] lg:hidden"
+      >
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div
+  data-menu-overlay
+  aria-hidden="true"
+  class="mobile-menu fixed inset-0 z-[60] flex flex-col bg-[var(--color-marrom)] text-[var(--color-bege)]"
+>
+  <div class="container-app flex h-[74px] items-center justify-between">
+    <span class="font-serif text-[1.35rem] font-bold tracking-[0.06em]">
+      BVC <span class="text-[var(--color-caramelo-lt)]">Advocacia</span>
+    </span>
+    <button
+      type="button"
+      data-menu-close
+      aria-label="Fechar menu"
+      class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(242,235,224,0.25)] text-[var(--color-bege)] transition-colors hover:border-[var(--color-caramelo-lt)] hover:text-[var(--color-caramelo-lt)]"
+    >
+      <Icon name="x" size={20} />
+    </button>
+  </div>
+
+  <div class="container-app flex flex-1 flex-col justify-center gap-6 pb-16">
+    <ul class="flex flex-col gap-5">
+      {
+        NAV_LINKS.map((link) => (
+          <li>
+            <a
+              href={`#${link.id}`}
+              class="block font-serif text-4xl font-bold text-[var(--color-bege)] transition-colors hover:text-[var(--color-caramelo-lt)]"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href={waHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-primary mt-6 w-full justify-center"
+    >
+      <Icon name="whatsapp" size={16} />
+      Fale com a Beatriz
+    </a>
+  </div>
+</div>
+
+<style>
+  .nav.is-scrolled {
+    background: rgba(242, 235, 224, 0.96);
+    box-shadow: 0 12px 30px -20px rgba(61, 43, 31, 0.25);
+  }
+  .nav-jump {
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-jump::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 0;
+    background: var(--color-caramelo);
+    transition: width 0.3s ease;
+  }
+  .nav-jump:hover::after,
+  .nav-jump.is-active::after {
+    width: 100%;
+  }
+  .nav-jump.is-active {
+    color: var(--color-caramelo);
+  }
+
+  .mobile-menu {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+  .mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+</style>

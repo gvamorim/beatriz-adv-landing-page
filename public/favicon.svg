@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#3D2B1F"/>
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
+    font-family="'Cormorant Garamond', 'Times New Roman', serif"
+    font-size="30" font-weight="700" fill="#B5854A" letter-spacing="1">BVC</text>
+</svg>

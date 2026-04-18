@@ -1,0 +1,14 @@
+# Dependencies and build outputs (indexing noise, large trees)
+node_modules/
+dist/
+.astro/
+.output/
+
+# Logs and local env
+*.log
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db

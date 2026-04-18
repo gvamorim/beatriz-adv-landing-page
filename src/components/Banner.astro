@@ -1,0 +1,29 @@
+---
+import Icon from "./Icon.astro";
+import Reveal from "./Reveal.astro";
+---
+
+<section class="relative overflow-hidden bg-[var(--color-caramelo)] py-20 md:py-24">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-10 -top-20 select-none font-serif text-[18rem] font-bold leading-none text-[var(--color-marrom)] opacity-[0.06]"
+  >
+    ❝
+  </div>
+  <div class="container-app relative max-w-3xl text-center">
+    <Reveal>
+      <Icon name="quote" size={34} class="mx-auto text-[var(--color-marrom)] opacity-70" />
+    </Reveal>
+    <Reveal delay={100}>
+      <p class="mt-6 font-serif text-[clamp(1.5rem,3vw,2.5rem)] italic font-normal leading-[1.4] text-[var(--color-marrom)]">
+        O seu RH não precisa adivinhar o que a CLT diz. Precisa de uma advogada
+        que explique, oriente e esteja junto quando precisar.
+      </p>
+    </Reveal>
+    <Reveal delay={200}>
+      <span class="mt-8 inline-block text-[0.75rem] font-medium uppercase tracking-[0.2em] text-[rgba(61,43,31,0.65)]">
+        Beatriz Vieira · BVC Advocacia Consultiva
+      </span>
+    </Reveal>
+  </div>
+</section>

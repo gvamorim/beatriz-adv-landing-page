@@ -1,105 +1,114 @@
-# Beatriz Vieira - Site Profissional
+# BVC Advocacia Consultiva — Landing Page
 
-Site profissional completo para Beatriz Vieira, advogada especialista em Direito Trabalhista Empresarial. Landing page otimizada para conversão com foco na captação de clientes através de serviços específicos.
+Site institucional de Beatriz Vieira Costa (OAB/MG 241.090), fundadora da BVC
+Advocacia Consultiva, com foco em assessoria preventiva para RH, NR-1,
+compliance trabalhista, treinamentos e palestras corporativas.
 
-## 🎯 Sobre o Projeto
+Landing page estática, totalmente em **PT-BR**, construída com Astro + Tailwind
+e publicada automaticamente no GitHub Pages a cada push na branch `main`.
 
-Este é um site de uma página (landing page) desenvolvido para promover os serviços jurídicos da advogada Beatriz Vieira, com duas propostas de valor principais:
-- **Contratos com Legal Design** para prestadores de serviço
-- **Diagnóstico Jurídico 360** gratuito para empresas
+## Tecnologias
 
-## ✨ Características Técnicas
+- **[Astro](https://astro.build)** — gerador de sites estáticos (latest)
+- **[Tailwind CSS](https://tailwindcss.com)** — estilização utility-first (latest)
+- **CSS + Intersection Observer** — animações de scroll sem bibliotecas extras
 
-- **Design profissional** com paleta terrosa elegante
-- **Tipografia premium**: Merriweather (serifada) e Open Sans (sans-serif) do Google Fonts
-- **Totalmente responsivo** e otimizado para todos os dispositivos
-- **Performance otimizada** com animações fluidas e CSS moderno
-- **Acessibilidade completa** (WCAG guidelines)
-- **SEO otimizado** com meta tags apropriadas
+## Estrutura
 
-## � Estrutura do Projeto
-
-```
-beatrizadv/
-├── index.html          # Página principal HTML5 semântica
-├── styles.css          # Estilos CSS3 com variáveis CSS e flexbox/grid
-├── script.js           # JavaScript para interatividade e animações
-├── etc/images/         # Imagens do projeto
-│   ├── 128.jpg        # Imagem de fundo do hero
-│   └── 141.jpg        # Foto de perfil da advogada
-└── README.md           # Documentação do projeto
-```
-
-## 🚀 Demonstração
-
-O site está totalmente funcional e pode ser visualizado abrindo o arquivo `index.html` em qualquer navegador moderno. Não requer servidor ou dependências externas.
-
-## 📱 Seções Implementadas
-
-### 1. **Hero Section**
-- Apresentação profissional com imagem de fundo
-- Título e subtítulo otimizados para SEO
-- Indicador de scroll animado
-
-### 2. **Seção de Escolha**
-- Duas opções de serviço claramente definidas
-- Botões com hover effects e animações
-- Design centrado na conversão
-
-### 3. **Contrato com Legal Design**
-- Proposta de valor para prestadores de serviço
-- Lista de benefícios estruturada
-- CTA direto para WhatsApp
-
-### 4. **Diagnóstico Jurídico 360**
-- Oferta gratuita para empresas
-- Sinais de alerta destacados
-- Processo explicado de forma clara
-
-### 5. **Sobre a Advogada**
-- Foto profissional implementada
-- Texto focado na expertise e credibilidade
-- Layout responsivo com grid CSS
-
-### 6. **Footer com Contatos**
-- Links diretos para WhatsApp, email e Instagram
-- Ícones SVG otimizados
-- Design consistente com o restante do site
-
-## 🎨 Design System
-
-### Paleta de Cores
-```css
---color-brown-dark: #3D2E1F      /* Títulos e elementos principais */
---color-brown-medium: #6B5744    /* Textos secundários */
---color-brown-light: #8B7355     /* Detalhes */
---color-beige-light: #F5F1ED     /* Background principal */
---color-beige-medium: #E8DDD0    /* Seções alternativas */
---color-tan: #C5A572             /* Botões e destaques */
---color-cream: #F8F3E8           /* Textos claros */
---color-accent: #8B6F47          /* CTAs e links */
+```text
+src/
+  components/          Nav, Hero, Founder, Intro, Services, Approach,
+                       Banner, NR1, Palestras, ServicesDetail, MainCTA,
+                       Footer, Icon, Reveal
+  layouts/             BaseLayout.astro
+  pages/               index.astro (single page com âncoras)
+  scripts/             reveal.ts (IntersectionObserver + menu mobile)
+  styles/              global.css (tokens, botões, cards, animações)
+  lib/                 links.ts (WhatsApp, LinkedIn, Instagram, navegação)
+public/                highlight.png, lecture.png, course.png, favicon.svg
+.github/workflows/     deploy.yml (publicação automática no GitHub Pages)
 ```
 
-### Tipografia
-- **Merriweather**: Títulos e elementos de destaque
-- **Open Sans**: Corpo do texto e elementos secundários
+Âncoras do menu rápido: `#inicio`, `#fundadora`, `#servicos`, `#palestras`,
+`#nr1`, `#contato`.
 
-## 🔧 Recursos Técnicos
+## Pré-requisitos
 
-- **CSS Grid e Flexbox** para layouts responsivos
-- **CSS Custom Properties** para consistência de design
-- **Animações CSS** com `cubic-bezier` para suavidade profissional
-- **Intersection Observer API** para animações on-scroll
-- **Semantic HTML5** para melhor SEO e acessibilidade
-- **Mobile-first approach** no design responsivo
+- Node.js (versão mais recente recomendada — testado em Node 20)
+- npm (ou yarn/pnpm)
 
-## 📈 Otimizações Implementadas
+## Rodando localmente
 
-- ✅ **Performance**: CSS e JS otimizados, imagens comprimidas
-- ✅ **SEO**: Meta tags, títulos semânticos, alt texts
-- ✅ **Acessibilidade**: ARIA labels, navegação por teclado, contraste adequado
-- ✅ **Conversão**: CTAs estratégicos, copy persuasivo, UX otimizada
+Instale as dependências e inicie o servidor de desenvolvimento:
 
-## 📄 Licença
+```bash
+npm install
+npm run dev
+```
 
-© 2025 Beatriz Vieira - Todos os direitos reservados
+O site abre em **[http://localhost:4321/beatrizadv/](http://localhost:4321/beatrizadv/)**
+(ou na porta que o Astro indicar no terminal). Alterações em arquivos são
+recarregadas automaticamente.
+
+## Build de produção
+
+```bash
+npm run build     # gera dist/
+npm run preview   # serve dist/ localmente para validação
+```
+
+## Deploy (GitHub Pages)
+
+O deploy é automatizado: a cada push na branch `main`, o workflow
+**Deploy to GitHub Pages** (`.github/workflows/deploy.yml`) executa nos
+servidores do GitHub — instala dependências, roda `npm run build` e publica o
+conteúdo de `dist/` no GitHub Pages.
+
+Para habilitar:
+
+1. No repositório, acesse **Settings → Pages**.
+2. Em **Build and deployment**, selecione **Source: GitHub Actions**.
+3. Confira `astro.config.mjs` — os campos `site` e `base` devem apontar para o
+   usuário/repositório corretos.
+
+## Seções
+
+### Início (`#inicio`)
+Hero com proposta de valor, citação assinada por Beatriz e indicadores
+(Prev., 100%, PME, RH+).
+
+### Sobre a Fundadora (`#fundadora`)
+Foto institucional (`public/highlight.png`), OAB MG 241.090, biografia e áreas
+de expertise: Direito Trabalhista Preventivo, Direito Penal e Perícia
+Grafotécnica.
+
+### Serviços (`#servicos`)
+Grade com 6 frentes: Assessoria Consultiva Contínua, Treinamentos, NR-1,
+Compliance, Palestras e Organização de Processos Internos. Cada card leva ao
+bloco de detalhe correspondente.
+
+### Palestras (`#palestras`)
+Galeria com imagens `public/lecture.png` e `public/course.png`, dois cards de
+preço (Palestra R$ 450 · Workshop/Curso a combinar), motivos para contratar e
+grade de temas com opção de tema customizado.
+
+### NR-1 (`#nr1`)
+Adequação à NR-1 (riscos psicossociais, PGRS), checklist de implantação e
+apoio da BVC.
+
+### Contato (`#contato`)
+CTA final com diagnóstico gratuito + rodapé com redes sociais:
+
+- WhatsApp: +55 (31) 98480-5500
+- LinkedIn: <https://www.linkedin.com/in/beatrizvieiracosta/>
+- Instagram: <https://www.instagram.com/beatrizvc.adv>
+
+## Diretrizes de design
+
+- Totalmente em PT-BR.
+- Feel de escritório boutique internacional.
+- Paleta quente (bege, marrom, caramelo).
+- Cantos arredondados em todos os cards e botões (sem bordas retas).
+- Botões elegantes com espaçamento de letras.
+- Animações de fade/scroll via Intersection Observer.
+- Sem emojis — toda iconografia é SVG linear.
