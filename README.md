@@ -48,7 +48,7 @@ npm install
 npm run dev
 ```
 
-Open **[http://localhost:4321/beatriz-adv-landing-page/](http://localhost:4321/beatriz-adv-landing-page/)**
+Open **[http://localhost:4321/](http://localhost:4321/)**
 (or the URL/port Astro prints in the terminal). File changes hot-reload.
 
 ## Production build
@@ -68,9 +68,10 @@ To enable it:
 
 1. In the repository, go to **Settings → Pages**.
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-3. In `astro.config.mjs`, set `site` to `https://<your-username>.github.io` and
-   `base` to `/<exact-repo-name>/` (with slashes). If you rename the repository,
-   update `base`; otherwise CSS and images will 404 on Pages.
+3. In `astro.config.mjs`, set `site` to your public URL (e.g.
+   `https://www.bvcadvocacia.com.br` for the custom domain) and `base` to `/`.
+   For the default `https://<user>.github.io/<repo>/` URL only, use that as
+   `site` and `base: '/<repo-name>/'` so assets resolve correctly.
 
 ## Page sections (Portuguese UI)
 
