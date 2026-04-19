@@ -36,9 +36,6 @@ function initActiveSectionTracker(): void {
     "inicio",
     "fundadora",
     "servicos",
-    "nr1",
-    "palestras",
-    "contato",
   ];
   const sections = sectionIds
     .map((id) => document.getElementById(id))

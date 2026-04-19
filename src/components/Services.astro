@@ -5,45 +5,39 @@ import Reveal from "./Reveal.astro";
 const services = [
   {
     id: "assessoria",
-    icon: "document",
+    icon: "message",
     title: "Assessoria Consultiva Contínua",
-    desc: "Suporte jurídico-trabalhista recorrente. Tire dúvidas, valide decisões e tenha segurança em cada etapa.",
-    tag: "Mensalidade",
+    teaser: "O seu departamento jurídico estratégico a uma mensagem de distância no WhatsApp.",
   },
   {
     id: "treinamentos",
     icon: "graduation",
     title: "Treinamentos para Gestores",
-    desc: "Capacitação prática sobre legislação trabalhista, boas práticas de gestão, direitos e deveres.",
-    tag: "Sob demanda",
+    teaser: "Capacite sua liderança e evite processos por assédio e danos morais.",
   },
   {
     id: "nr1",
-    icon: "compass",
+    icon: "shield",
     title: "NR-1 e Saúde Mental",
-    desc: "Adequação à nova NR-1: mapeamento de riscos psicossociais, PGRS e implantação de processos.",
-    tag: "Destaque 2026",
+    teaser: "Adequação rápida à nova obrigatoriedade para evitar multas do MPT e passivos milionários.",
   },
   {
     id: "compliance",
-    icon: "building",
+    icon: "scales",
     title: "Compliance Trabalhista",
-    desc: "Políticas internas, regulamento empresarial e cultura de prevenção integrada ao RH.",
-    tag: "Programa recorrente",
+    teaser: "Transforme a cultura da sua empresa no seu principal escudo de defesa no tribunal.",
   },
   {
     id: "palestras",
     icon: "mic",
     title: "Palestras e Workshops",
-    desc: "Temas trabalhistas aplicados à cultura da empresa: assédio, saúde mental, normas de conduta.",
-    tag: "In company",
+    teaser: "Conscientização de equipe sobre assédio e saúde mental que vira prova antecipada.",
   },
   {
     id: "processos",
     icon: "folder",
-    title: "Organização de Processos Internos",
-    desc: "Revisão de contratos, documentos admissionais, políticas e procedimentos disciplinares.",
-    tag: "Avulso ou incluso",
+    title: "Gestão de Processos e Cobranças",
+    teaser: "Defesa combativa em ações trabalhistas e recuperação extrajudicial de créditos.",
   },
 ];
 ---
@@ -63,13 +57,13 @@ const services = [
     <div class="mx-auto max-w-2xl text-center">
       <Reveal>
         <span class="eyebrow-plain text-[var(--color-caramelo-lt)]">
-          O que a BVC oferece
+          O QUE A BVC OFERECE
         </span>
       </Reveal>
       <Reveal delay={100}>
         <h2 class="mt-6 font-serif text-[clamp(1.9rem,3.4vw,2.9rem)] font-bold leading-[1.2] text-[var(--color-bege)]">
-          Soluções que fazem sentido para
-          <em class="text-[var(--color-caramelo-lt)]">quem é de RH</em>
+          Soluções estratégicas para blindar o seu caixa e
+          <em class="text-[var(--color-caramelo-lt)]"> organizar a sua empresa.</em>
         </h2>
       </Reveal>
     </div>
@@ -78,10 +72,7 @@ const services = [
       {
         services.map((s, i) => (
           <Reveal delay={(i % 3) * 100}>
-            <a
-              href={`#${s.id}`}
-              class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-[rgba(181,133,74,0.2)] bg-white/[0.03] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-caramelo)] hover:bg-[rgba(181,133,74,0.08)]"
-            >
+            <div class="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-[rgba(181,133,74,0.2)] bg-white/[0.03] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-caramelo)] hover:bg-[rgba(181,133,74,0.08)]">
               <div>
                 <div class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(181,133,74,0.45)] bg-[rgba(181,133,74,0.12)] text-[var(--color-caramelo-lt)] transition-colors group-hover:bg-[var(--color-caramelo)] group-hover:text-[var(--color-bege)]">
                   <Icon name={s.icon} size={22} />
@@ -90,26 +81,522 @@ const services = [
                   {s.title}
                 </h3>
                 <p class="mt-3 text-[0.9rem] font-light leading-[1.7] text-[rgba(242,235,224,0.6)]">
-                  {s.desc}
+                  {s.teaser}
                 </p>
               </div>
 
-              <div class="mt-7 flex items-center justify-between">
-                <span class="chip">{s.tag}</span>
-                <span class="inline-flex items-center gap-2 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-[var(--color-caramelo-lt)] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  Ver detalhes
+              <div class="mt-7">
+                <button
+                  type="button"
+                  data-modal-open={s.id}
+                  class="inline-flex items-center gap-2 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-[var(--color-caramelo-lt)] transition-colors hover:text-[var(--color-caramelo)]"
+                >
+                  Saiba Mais
                   <Icon name="arrow-right" size={14} />
-                </span>
+                </button>
               </div>
 
               <span
                 aria-hidden="true"
                 class="absolute bottom-0 left-8 right-8 h-[2px] w-0 bg-[var(--color-caramelo)] transition-all duration-500 group-hover:w-[calc(100%-4rem)]"
               />
-            </a>
+            </div>
           </Reveal>
         ))
       }
     </div>
   </div>
 </section>
+
+<!-- Modal Overlay -->
+<div
+  id="services-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+  class="services-modal-overlay"
+  hidden
+>
+  <div class="services-modal-backdrop"></div>
+  <div class="services-modal-panel" tabindex="-1">
+    <button
+      type="button"
+      id="modal-close"
+      class="services-modal-close"
+      aria-label="Fechar"
+    >
+      <Icon name="x" size={20} />
+    </button>
+
+    <!-- Service 1: Assessoria -->
+    <div data-modal-content="assessoria" hidden>
+      <p class="services-modal-eyebrow">Assessoria Consultiva Contínua</p>
+      <h2 id="modal-title" class="services-modal-title">
+        E se eu demitir e tomar um processo?
+      </h2>
+      <div class="services-modal-items">
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="message" size={18} /></div>
+          <div>
+            <strong>"Posso fazer isso?"</strong>
+            <p>WhatsApp VIP ágil — consulte antes de agir, em tempo real, sem burocracia.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="document" size={18} /></div>
+          <div>
+            <strong>"Preciso de um documento"</strong>
+            <p>Filtro Anti-Processo — contratos, termos e comunicados elaborados para proteger a empresa.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="shield" size={18} /></div>
+          <div>
+            <strong>"Como demitir sem risco?"</strong>
+            <p>Demissões Cirúrgicas e calculadas — cada rescisão planejada para eliminar a exposição ao passivo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2: Treinamentos -->
+    <div data-modal-content="treinamentos" hidden>
+      <p class="services-modal-eyebrow">Treinamentos para Gestores</p>
+      <h2 id="modal-title" class="services-modal-title">
+        Minha liderança gera resultados ou processos trabalhistas?
+      </h2>
+      <div class="services-modal-items">
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="scales" size={18} /></div>
+          <div>
+            <strong>"Até onde o gestor pode ir?"</strong>
+            <p>Limites Legais — entenda a fronteira entre gestão firme e assédio punível pela Justiça do Trabalho.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="message" size={18} /></div>
+          <div>
+            <strong>"Como falar sem errar?"</strong>
+            <p>Comunicação Segura — scripts e práticas de feedback que protegem o gestor e a empresa.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="book" size={18} /></div>
+          <div>
+            <strong>"E no dia a dia?"</strong>
+            <p>Rotina CLT — procedimentos práticos para jornada, advertências, férias e banco de horas sem falha.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3: NR-1 -->
+    <div data-modal-content="nr1" hidden>
+      <p class="services-modal-eyebrow">NR-1 e Saúde Mental</p>
+      <h2 id="modal-title" class="services-modal-title">
+        Sua empresa está preparada ou tomará a multa?
+      </h2>
+      <p class="services-modal-text">
+        Gerenciar a saúde mental agora é lei. Ignorar a nova NR-1 gera multas
+        automáticas do MPT, além de abrir passivos milionários em ações por danos
+        morais e psicológicos.
+      </p>
+      <p class="services-modal-subtitle">Processo de Blindagem</p>
+      <div class="services-modal-steps">
+        <div class="services-modal-step">
+          <span class="services-modal-step-num">01</span>
+          <span>Mapeamento Interno</span>
+        </div>
+        <div class="services-modal-step">
+          <span class="services-modal-step-num">02</span>
+          <span>Identificação de Gargalos</span>
+        </div>
+        <div class="services-modal-step">
+          <span class="services-modal-step-num">03</span>
+          <span>Plano de Ação e Saneamento</span>
+        </div>
+        <div class="services-modal-step">
+          <span class="services-modal-step-num">04</span>
+          <span>Certificação de Blindagem</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 4: Compliance -->
+    <div data-modal-content="compliance" hidden>
+      <p class="services-modal-eyebrow">Compliance Trabalhista</p>
+      <h2 id="modal-title" class="services-modal-title">
+        As regras da sua empresa protegem o seu caixa?
+      </h2>
+      <div class="services-modal-items">
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="chart" size={18} /></div>
+          <div>
+            <strong>"Onde estou perdendo dinheiro?"</strong>
+            <p>Raio-X de Risco — auditoria das práticas trabalhistas e mapeamento dos pontos de exposição financeira.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="document" size={18} /></div>
+          <div>
+            <strong>"Quais são as regras do jogo?"</strong>
+            <p>Regulamentos — elaboração de políticas internas, código de conduta e regulamento empresarial.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="check" size={18} /></div>
+          <div>
+            <strong>"Como garantir que cumpram?"</strong>
+            <p>Implantação — treinamento de equipe e processos de monitoramento para garantir a adesão às normas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 5: Palestras -->
+    <div data-modal-content="palestras" hidden>
+      <p class="services-modal-eyebrow">Palestras e Workshops</p>
+      <h2 id="modal-title" class="services-modal-title">
+        A conscientização que defende a empresa.
+      </h2>
+      <p class="services-modal-text">
+        Cada palestra é estrategicamente desenhada para gerar provas antecipadas:
+        listas de presença, atas e registros documentais que fortalecem a defesa
+        da empresa em auditorias do MPT e ações trabalhistas.
+      </p>
+      <div class="services-modal-items">
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="users" size={18} /></div>
+          <div>
+            <strong>Geração de Provas Documentais</strong>
+            <p>Listas de presença e registros que comprovam comprometimento da empresa com a prevenção.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="shield" size={18} /></div>
+          <div>
+            <strong>Proteção contra Auditorias</strong>
+            <p>Documentação estruturada para responder com solidez a fiscalizações do MPT e do MTE.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="sparkle" size={18} /></div>
+          <div>
+            <strong>Melhoria de Clima e Cultura</strong>
+            <p>Times conscientes sobre assédio e saúde mental reduzem conflitos e aumentam retenção de talentos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 6: Processos e Cobranças -->
+    <div data-modal-content="processos" hidden>
+      <p class="services-modal-eyebrow">Gestão de Processos e Cobranças</p>
+      <h2 id="modal-title" class="services-modal-title">
+        Você está perdendo dinheiro para ex-funcionários ou clientes inadimplentes?
+      </h2>
+      <div class="services-modal-items">
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="scale" size={18} /></div>
+          <div>
+            <strong>"Fui processado. E agora?"</strong>
+            <p>Defesa Trabalhista Combativa — atuação estratégica para minimizar condenações e reverter pedidos abusivos.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="briefcase" size={18} /></div>
+          <div>
+            <strong>"O cliente sumiu e não pagou"</strong>
+            <p>Recuperação Extrajudicial — cobrança eficaz de créditos sem desgaste de longos processos judiciais.</p>
+          </div>
+        </div>
+        <div class="services-modal-item">
+          <div class="services-modal-item-icon"><Icon name="target" size={18} /></div>
+          <div>
+            <strong>"Como parar o vazamento?"</strong>
+            <p>Análise de Causa — identificação das falhas que originaram o processo para blindar a empresa no futuro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .services-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .services-modal-overlay[hidden] {
+    display: none;
+  }
+
+  .services-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 29, 19, 0.78);
+    backdrop-filter: blur(4px);
+  }
+
+  .services-modal-panel {
+    position: relative;
+    background: var(--color-bege);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 32px 80px -16px rgba(44, 29, 19, 0.55);
+    ring: 1px solid rgba(181, 133, 74, 0.3);
+    outline: none;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .services-modal-overlay.is-open .services-modal-panel {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .services-modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(181, 133, 74, 0.35);
+    background: transparent;
+    color: var(--color-marrom-med);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .services-modal-close:hover {
+    background: var(--color-caramelo);
+    color: var(--color-bege);
+    border-color: var(--color-caramelo);
+  }
+
+  .services-modal-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-caramelo);
+    margin-bottom: 0.75rem;
+  }
+
+  .services-modal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-marrom);
+    margin-bottom: 1.75rem;
+  }
+
+  .services-modal-text {
+    font-size: 0.975rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-muted);
+    margin-bottom: 1.75rem;
+  }
+
+  .services-modal-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-marrom-claro);
+    margin-bottom: 1rem;
+  }
+
+  .services-modal-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .services-modal-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(181, 133, 74, 0.2);
+    background: rgba(181, 133, 74, 0.05);
+  }
+
+  .services-modal-item strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-marrom);
+    margin-bottom: 0.25rem;
+  }
+
+  .services-modal-item p {
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .services-modal-item-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background: rgba(181, 133, 74, 0.15);
+    color: var(--color-caramelo);
+  }
+
+  .services-modal-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .services-modal-step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: 0.875rem;
+    border: 1px solid rgba(181, 133, 74, 0.2);
+    background: rgba(181, 133, 74, 0.05);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-marrom);
+  }
+
+  .services-modal-step-num {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-caramelo);
+    min-width: 2rem;
+  }
+</style>
+
+<script>
+  const FOCUSABLE =
+    'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+  function getFocusables(el: HTMLElement): HTMLElement[] {
+    return Array.from(el.querySelectorAll<HTMLElement>(FOCUSABLE));
+  }
+
+  function openModal(serviceId: string): void {
+    const overlay = document.getElementById("services-modal") as HTMLElement;
+    if (!overlay) return;
+
+    // Hide all content panels
+    overlay.querySelectorAll<HTMLElement>("[data-modal-content]").forEach((el) => {
+      el.hidden = true;
+    });
+
+    // Show the matching panel
+    const panel = overlay.querySelector<HTMLElement>(
+      `[data-modal-content="${serviceId}"]`
+    );
+    if (!panel) return;
+    panel.hidden = false;
+
+    // Show overlay
+    overlay.hidden = false;
+    // Force reflow for transition
+    overlay.getBoundingClientRect();
+    overlay.classList.add("is-open");
+
+    // Lock body scroll
+    document.body.style.overflow = "hidden";
+
+    // Focus the panel
+    const modalPanel = overlay.querySelector<HTMLElement>(".services-modal-panel");
+    modalPanel?.focus();
+  }
+
+  function closeModal(): void {
+    const overlay = document.getElementById("services-modal") as HTMLElement;
+    if (!overlay) return;
+
+    overlay.classList.remove("is-open");
+    document.body.style.overflow = "";
+
+    // Wait for transition to finish before hiding
+    const onTransitionEnd = () => {
+      overlay.hidden = true;
+      overlay.removeEventListener("transitionend", onTransitionEnd);
+    };
+    overlay.querySelector(".services-modal-panel")?.addEventListener(
+      "transitionend",
+      onTransitionEnd
+    );
+  }
+
+  // Open buttons
+  document.querySelectorAll<HTMLButtonElement>("[data-modal-open]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.modalOpen;
+      if (id) openModal(id);
+    });
+  });
+
+  // Close button
+  document.getElementById("modal-close")?.addEventListener("click", closeModal);
+
+  // Backdrop click
+  document.querySelector(".services-modal-backdrop")?.addEventListener("click", closeModal);
+
+  // ESC key + focus trap
+  document.addEventListener("keydown", (e) => {
+    const overlay = document.getElementById("services-modal");
+    if (!overlay || overlay.hidden) return;
+
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (e.key === "Tab") {
+      const panel = overlay.querySelector<HTMLElement>(".services-modal-panel");
+      if (!panel) return;
+      const focusables = getFocusables(panel);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+  });
+</script>
