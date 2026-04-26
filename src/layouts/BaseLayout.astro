@@ -64,6 +64,15 @@ const ogImage = new URL(`${import.meta.env.BASE_URL}highlight.png`, Astro.site).
         src="https://www.facebook.com/tr?id=27147709638181031&ev=PageView&noscript=1" />
     </noscript>
     <!-- End Meta Pixel -->
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=AW-18114621676"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18114621676');
+    </script>
   </head>
   <body>
     <a
